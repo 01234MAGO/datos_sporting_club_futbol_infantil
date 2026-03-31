@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registro de Partido — Fútbol Infantil</title>
+<title>Registro de Partido — Sporting Club Fútbol Infantil</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ─── Design tokens ─────────────────────────────────────────── */
@@ -34,7 +34,7 @@
 
   /* ─── Header ────────────────────────────────────────────────── */
   .header {
-    background: linear-gradient(135deg, #0a3d1f 0%, #0d1117 60%);
+    background: linear-gradient(135deg, #008aca 0%, #0d1117 60%);
     border-bottom: 2px solid var(--green);
     padding: 24px 20px 20px;
     text-align: center;
@@ -169,7 +169,7 @@
     font-weight: 500;
   }
   .radio-opt input[type="radio"] { display: none; }
-  .radio-opt.selected-local  { border-color: var(--green); background: rgba(46,204,113,0.12); color: var(--green); }
+  .radio-opt.selected-local  { border-color: var(--green); background: rgba(46, 114, 204, 0.12); color: var(--green); }
   .radio-opt.selected-visit  { border-color: #e67e22; background: rgba(230,126,34,0.12);  color: #e67e22; }
 
   /* ─── Checkbox ───────────────────────────────────────────────── */
@@ -335,9 +335,9 @@
     padding: 16px 48px;
     cursor: pointer;
     transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(46,204,113,0.3);
+    box-shadow: 0 4px 20px rgba(188, 204, 46, 0.3);
   }
-  .btn-submit:hover { background: #27ae60; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(46,204,113,0.4); }
+  .btn-submit:hover { background: #2783ae; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(46, 204, 196, 0.4); }
   .btn-submit:active { transform: translateY(0); }
   .submit-note { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
 
@@ -383,8 +383,8 @@
 
 <!-- ─── HEADER ─────────────────────────────────────────────────── -->
 <div class="header">
-  <div class="header-badge">⚽ Fútbol Infantil</div>
-  <h1>Registro de <span>Partido</span></h1>
+  <div class="header-badge">⚽ Sporting Club Fútbol Infantil</div>
+  <h1>Registro del <span>Partido</span></h1>
   <div class="header-meta">Completar dentro de las 24 hs del partido</div>
 </div>
 
@@ -396,7 +396,7 @@
       <div class="section-icon">📋</div>
       <div>
         <div class="section-title">Datos del Partido</div>
-        <div class="section-subtitle">Información general del encuentro</div>
+        <div class="section-subtitle">Información general</div>
       </div>
     </div>
     <div class="section-body">
@@ -571,9 +571,9 @@
   <!-- ─── SUBMIT ─────────────────────────────────────────────────── -->
   <div class="submit-wrap">
     <button class="btn-submit" onclick="submitForm()">
-      ✓ Generar archivo JSON
+      ✓ Generar archivo
     </button>
-    <div class="submit-note">Se descargará un archivo .json con los datos del partido</div>
+    <div class="submit-note">Se descargará un archivo para ernest</div>
   </div>
 
 </div><!-- /container -->
@@ -590,20 +590,26 @@
 // ▸ El 'id' es el identificador único (puede ser número de DNI, número de ficha, etc.)
 const JUGADORES = {
   "quinta_division": [
-    { id: "QD-01", nombre: "Lucas",    apellido: "Fernández" },
-    { id: "QD-02", nombre: "Mateo",    apellido: "García" },
-    { id: "QD-03", nombre: "Thiago",   apellido: "López" },
-    { id: "QD-04", nombre: "Santiago", apellido: "Martínez" },
-    { id: "QD-05", nombre: "Tomás",    apellido: "Rodríguez" },
-    { id: "QD-06", nombre: "Benjamín", apellido: "González" },
-    { id: "QD-07", nombre: "Valentín", apellido: "Pérez" },
-    { id: "QD-08", nombre: "Agustín",  apellido: "Sánchez" },
-    { id: "QD-09", nombre: "Nicolás",  apellido: "Ramírez" },
-    { id: "QD-10", nombre: "Ezequiel", apellido: "Torres" },
-    { id: "QD-11", nombre: "Facundo",  apellido: "Flores" },
-    { id: "QD-12", nombre: "Ignacio",  apellido: "Castro" },
-    { id: "QD-13", nombre: "Axel",     apellido: "Morales" },
-    { id: "QD-14", nombre: "Brian",    apellido: "Jiménez" }
+    { id: "5A-01", nombre: "Samir",    apellido: "Seguetti" },
+    { id: "5A-02", nombre: "Lautaro",    apellido: "Depetris" },
+    { id: "5A-03", nombre: "Maximiliano",   apellido: "Porcel" },
+    { id: "5A-04", nombre: "Bautista", apellido: "Fornaso" },
+    { id: "5A-05", nombre: "Felipe",    apellido: "Farias" },
+    { id: "5A-06", nombre: "Juan", apellido: "Figueroa" },
+    { id: "5A-07", nombre: "Gino", apellido: "Trombetti" },
+    { id: "5A-08", nombre: "Salvador",  apellido: "Nicolau" },
+    { id: "5A-09", nombre: "Fausto",  apellido: "Cosarinsky" },
+    { id: "5A-10", nombre: "Mateo", apellido: "Farias" },
+    { id: "5A-11", nombre: "Santiago",  apellido: "Desio" },
+    { id: "5A-12", nombre: "Ceferino",  apellido: "Davico" },
+    { id: "5A-13", nombre: "Adriano",     apellido: "Cipollone" },
+    { id: "5A-14", nombre: "Santino",    apellido: "Cappone" },
+    { id: "5A-15", nombre: "Renzo",    apellido: "Boiero" },
+    { id: "5A-16", nombre: "Theo",    apellido: "Nicolau" },
+    { id: "5A-17", nombre: "Mateo",    apellido: "Said" },
+    { id: "5A-18", nombre: "Lautaro",    apellido: "Gimenez" },
+    { id: "5A-19", nombre: "Felipe",    apellido: "Cipollone" },
+    { id: "5A-20", nombre: "Agustin",    apellido: "Pagani" },
   ],
   "2012": [
     { id: "12-01", nombre: "Franco",   apellido: "Acosta" },
