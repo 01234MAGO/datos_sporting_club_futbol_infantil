@@ -36,7 +36,7 @@
   .header {
     background: linear-gradient(135deg, #008aca 0%, #0d1117 60%);
     border-bottom: 2px solid var(--green);
-    padding: 24px 20px 20px;
+    padding: 10px 20px 8px;
     text-align: center;
     position: sticky;
     top: 0;
@@ -335,9 +335,9 @@
     padding: 16px 48px;
     cursor: pointer;
     transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(188, 204, 46, 0.3);
+    box-shadow: 0 4px 20px rgba(2, 87, 156, 0.3);
   }
-  .btn-submit:hover { background: #2783ae; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(46, 204, 196, 0.4); }
+  .btn-submit:hover { background: #2561e0; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(10, 221, 236, 0.4); }
   .btn-submit:active { transform: translateY(0); }
   .submit-note { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
 
@@ -426,7 +426,19 @@
       <div class="form-grid cols-2">
         <div class="field">
           <label>Rival <span class="req">*</span></label>
-          <input type="text" id="rival" placeholder="Nombre del club rival">
+          <select id="rival">
+  <option value="">Seleccioná el rival...</option>
+  <option value="Atlético Guatimozín">Atlético Guatimozín</option>
+  <option value="Boca Camilo">Boca Camilo</option>
+  <option value="Corralense">Corralense</option>
+  <option value="Juventud Camilo">Juventud Camilo</option>
+  <option value="Mitre Baldisera">Mitre Baldisera</option>
+  <option value="Newery Cruz Alta">Newery Cruz Alta</option>
+  <option value="River Inriville">River Inriville</option>
+  <option value="Sportivo Isla Verde">Sportivo Isla Verde</option>
+  <option value="San Carlos">San Carlos</option>
+  <option value="Union Cruz Alta">Union Cruz Alta</option>
+</select>
         </div>
         <div class="field">
           <label>Localía <span class="req">*</span></label>
@@ -446,11 +458,11 @@
       <div class="form-grid cols-2">
         <div class="field">
           <label>Goles a Favor <span class="req">*</span></label>
-          <input type="number" id="goles_favor" min="0" max="99" placeholder="0">
+          <input type="number" id="goles_favor" min="0" max="99" value="0">
         </div>
         <div class="field">
           <label>Goles en Contra <span class="req">*</span></label>
-          <input type="number" id="goles_contra" min="0" max="99" placeholder="0">
+          <input type="number" id="goles_contra" min="0" max="99" value="0">
         </div>
       </div>
     </div>
@@ -475,12 +487,12 @@
         </div>
         <div class="stat-input-wrap">
           <div class="stat-input-col">
-            <input type="number" id="ocgol_gen" class="stat-number" min="0" placeholder="0">
-            <div class="half-label">Generadas</div>
+            <input type="number" id="ocgol_gen" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color: var(--green)">Generadas</div>
           </div>
           <div class="stat-input-col">
-            <input type="number" id="ocgol_rec" class="stat-number" min="0" placeholder="0">
-            <div class="half-label">Recibidas</div>
+            <input type="number" id="ocgol_rec" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color:var(--red)">Recibidas</div>
           </div>
         </div>
       </div>
@@ -489,17 +501,34 @@
       <div class="stat-row">
         <div class="stat-icon">👟</div>
         <div style="flex:1">
-          <div class="stat-label">Remates al Arco</div>
-          <div class="stat-sublabel">Por tiempo</div>
+          <div class="stat-label">Remates</div>
         </div>
         <div class="stat-input-wrap">
           <div class="stat-input-col">
-            <input type="number" id="remates_1t" class="stat-number" min="0" placeholder="0">
-            <div class="half-label">1° Tiempo</div>
+            <input type="number" id="remates_al_arco" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color:var(--green)">Al arco</div>
           </div>
           <div class="stat-input-col">
-            <input type="number" id="remates_2t" class="stat-number" min="0" placeholder="0">
-            <div class="half-label">2° Tiempo</div>
+            <input type="number" id="remates_afuera" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color:var(--red)">Afuera</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Atajadas clave -->
+      <div class="stat-row">
+        <div class="stat-icon">🧤</div>
+        <div style="flex:1">
+          <div class="stat-label" >Atajadas Clave</div>
+        </div>
+        <div class="stat-input-wrap">
+          <div class="stat-input-col">
+            <input type="number" id="atajadas_remates" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color:var(--green)">Remates</div>
+          </div>
+          <div class="stat-input-col">
+            <input type="number" id="atajadas_mano_mano" class="stat-number" min="0" value="0">
+            <div class="half-label" style="color:var(--green)">Mano a mano</div>
           </div>
         </div>
       </div>
@@ -509,18 +538,16 @@
         <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px;">
           🛡️ Valla Invicta
         </div>
-        <div class="checkbox-group">
-          <label class="check-item" id="check-valla1" onclick="toggleCheck('valla_1t')">
+        <div class="checkbox-group" style="flex-direction:row; gap:10px;">
+          <label class="check-item" id="check-valla1" onclick="toggleCheck('valla_1t')" style="flex:1">
             <input type="checkbox" id="valla_1t">
             <div class="check-box">✓</div>
-            <div class="check-label">Primer Tiempo sin goles recibidos</div>
-            <div class="check-badge">1° T</div>
+            <div class="check-label">1° Tiempo</div>
           </label>
-          <label class="check-item" id="check-valla2" onclick="toggleCheck('valla_2t')">
+          <label class="check-item" id="check-valla2" onclick="toggleCheck('valla_2t')" style="flex:1">
             <input type="checkbox" id="valla_2t">
             <div class="check-box">✓</div>
-            <div class="check-label">Segundo Tiempo sin goles recibidos</div>
-            <div class="check-badge">2° T</div>
+            <div class="check-label">2° Tiempo</div>
           </label>
         </div>
         <div style="font-size:11px; color:var(--text-dim); margin-top:8px; padding-left:4px;">
@@ -568,19 +595,39 @@
     </div>
   </div>
 
-  <!-- ─── SUBMIT ─────────────────────────────────────────────────── -->
+<!-- ─── SUBMIT ─────────────────────────────────────────────────── -->
   <div class="submit-wrap">
     <button class="btn-submit" onclick="submitForm()">
-      ✓ Generar archivo
+      ENVIAR DATOS
     </button>
-    <div class="submit-note">Se descargará un archivo para ernest</div>
+    <div class="submit-note">Los datos se enviaran automaticamente</div>
   </div>
 
 </div><!-- /container -->
 
+<!-- ─── FOOTER LEGAL ───────────────────────────────────────────── -->
+<div style="
+  text-align: center;
+  padding: 24px 20px 32px;
+  border-top: 2px solid var(--border);
+  margin-top: 4px;
+">
+  <div style="
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+    line-height: 1.7;
+  ">
+    © 2026 <span style="color: var(--text); font-weight: 600;">Ernesto Magolini</span>
+    — Todos los derechos reservados.<br>
+    Este software, su diseño, estructura de datos y metodología de análisis son propiedad exclusiva de Ernesto Magolini.<br>
+    Queda prohibida su reproducción, distribución o uso sin autorización expresa del titular.
+  </div>
+</div>
+
 <!-- ─── TOAST ──────────────────────────────────────────────────── -->
 <div class="toast" id="toast"></div>
-
 <!-- ─── SCRIPT ─────────────────────────────────────────────────── -->
 <script>
 
@@ -592,122 +639,169 @@ const JUGADORES = {
   "quinta_division": [
     { id: "5A-01", nombre: "Samir",    apellido: "Seguetti" },
     { id: "5A-02", nombre: "Lautaro",    apellido: "Depetris" },
-    { id: "5A-03", nombre: "Maximiliano",   apellido: "Porcel" },
+    { id: "5A-03", nombre: "Maximo",   apellido: "Porcel" },
     { id: "5A-04", nombre: "Bautista", apellido: "Fornaso" },
-    { id: "5A-05", nombre: "Felipe",    apellido: "Farias" },
-    { id: "5A-06", nombre: "Juan", apellido: "Figueroa" },
-    { id: "5A-07", nombre: "Gino", apellido: "Trombetti" },
-    { id: "5A-08", nombre: "Salvador",  apellido: "Nicolau" },
-    { id: "5A-09", nombre: "Fausto",  apellido: "Cosarinsky" },
-    { id: "5A-10", nombre: "Mateo", apellido: "Farias" },
-    { id: "5A-11", nombre: "Santiago",  apellido: "Desio" },
-    { id: "5A-12", nombre: "Ceferino",  apellido: "Davico" },
-    { id: "5A-13", nombre: "Adriano",     apellido: "Cipollone" },
-    { id: "5A-14", nombre: "Santino",    apellido: "Cappone" },
-    { id: "5A-15", nombre: "Renzo",    apellido: "Boiero" },
-    { id: "5A-16", nombre: "Theo",    apellido: "Nicolau" },
-    { id: "5A-17", nombre: "Mateo",    apellido: "Said" },
-    { id: "5A-18", nombre: "Lautaro",    apellido: "Gimenez" },
-    { id: "5A-19", nombre: "Felipe",    apellido: "Cipollone" },
-    { id: "5A-20", nombre: "Agustin",    apellido: "Pagani" },
+    { id: "5A-05", nombre: "Felipe",       apellido: "Farias" },
+    { id: "5A-06", nombre: "Juan",         apellido: "Figueroa" },
+    { id: "5A-07", nombre: "Gino",         apellido: "Trombetti" },
+    { id: "5A-08", nombre: "Salvador",     apellido: "Nicolau" },
+    { id: "5A-09", nombre: "Fausto",       apellido: "Cosarinsky" },
+    { id: "5A-10", nombre: "Mateo",        apellido: "Farias" },
+    { id: "5A-11", nombre: "Santiago",     apellido: "Desio" },
+    { id: "5A-12", nombre: "Ceferino",     apellido: "Davico" },
+    { id: "5A-13", nombre: "Adriano",      apellido: "Cipollone" },
+    { id: "5A-14", nombre: "Santino",      apellido: "Cappone" },
+    { id: "5A-15", nombre: "Renzo",        apellido: "Boiero" },
+    { id: "5A-16", nombre: "Theo",         apellido: "Nicolau" },
+    { id: "5A-17", nombre: "Mateo",        apellido: "Said" },
+    { id: "5A-18", nombre: "Lautaro",      apellido: "Gimenez" },
+    { id: "5A-19", nombre: "Felipe",       apellido: "Cipollone" },
+    { id: "5A-20", nombre: "Agustin",      apellido: "Pagani" },
+    { id: "5A-21", nombre: "Ignacio",      apellido: "Cassina" },
+    { id: "5A-22", nombre: "Felipe",       apellido: "Gamarino" },
+    { id: "5A-23", nombre: "Felipe",       apellido: "Lupori" },
+    { id: "5A-24", nombre: "Benjamin",     apellido: "Arce" },
+    { id: "5A-25", nombre: "Juan Segundo", apellido: "Rodriguez" },
+    { id: "5A-26", nombre: "Ignacio",      apellido: "Jaime" },
   ],
   "2012": [
-    { id: "12-01", nombre: "Franco",   apellido: "Acosta" },
-    { id: "12-02", nombre: "Renato",   apellido: "Vargas" },
-    { id: "12-03", nombre: "Lautaro",  apellido: "Herrera" },
-    { id: "12-04", nombre: "Emiliano", apellido: "Medina" },
-    { id: "12-05", nombre: "Alexis",   apellido: "Rojas" },
-    { id: "12-06", nombre: "Iván",     apellido: "Vega" },
-    { id: "12-07", nombre: "Sergio",   apellido: "Paredes" },
-    { id: "12-08", nombre: "Diego",    apellido: "Molina" },
-    { id: "12-09", nombre: "Felipe",   apellido: "Ríos" },
-    { id: "12-10", nombre: "Cristian", apellido: "Cruz" },
-    { id: "12-11", nombre: "Rodrigo",  apellido: "Núñez" },
-    { id: "12-12", nombre: "Patricio", apellido: "Silva" }
+    { id: "12-01", nombre: "Mateo",      apellido: "Confaloñeri" },
+    { id: "12-02", nombre: "Nahuel",     apellido: "Bambozzi" },
+    { id: "12-03", nombre: "Lazaro",     apellido: "Elia" },
+    { id: "12-04", nombre: "Octavio",    apellido: "Place" },
+    { id: "12-05", nombre: "Octavio",    apellido: "Abrahan" },
+    { id: "12-06", nombre: "Jesus",      apellido: "Rodriguez" },
+    { id: "12-07", nombre: "Maximo",     apellido: "Balmaceda" },
+    { id: "12-08", nombre: "Francino",   apellido: "Robiatti" },
+    { id: "12-09", nombre: "Bautista",   apellido: "Desio" },
+    { id: "12-10", nombre: "Alejandro",  apellido: "Zarate" },
+    { id: "12-11", nombre: "Lucio",      apellido: "Fornaso" },
+    { id: "12-12", nombre: "Kevin",      apellido: "Seguetti" },
+    { id: "12-13", nombre: "Francisco",  apellido: "Farias" },
+    { id: "12-14", nombre: "Victorio",   apellido: "Lapenna" },
+    { id: "12-15", nombre: "Ezequiel",   apellido: "Fiordani" },
+    { id: "12-16", nombre: "Mateo",      apellido: "Merida" },
+    { id: "12-17", nombre: "Mateo",      apellido: "Gerbaudo" },
+    { id: "12-18", nombre: "Maximo",     apellido: "Gerbaudo" },
+    { id: "12-19", nombre: "Bautista",   apellido: "Giovanini" },
+    { id: "12-20", nombre: "Benjamin",   apellido: "Gonzalez" },
+    { id: "12-21", nombre: "Bruno",      apellido: "Bonet" },
+    { id: "12-22", nombre: "Tiziano",    apellido: "Petersons" },
+    { id: "12-23", nombre: "Thiago",     apellido: "Sella" },
   ],
   "2013": [
-    { id: "13-01", nombre: "Enzo",     apellido: "Montoya" },
-    { id: "13-02", nombre: "Nahuel",   apellido: "Mendoza" },
-    { id: "13-03", nombre: "Bruno",    apellido: "Aguilar" },
-    { id: "13-04", nombre: "Mauro",    apellido: "Cabrera" },
-    { id: "13-05", nombre: "Giuliano", apellido: "Espinoza" },
-    { id: "13-06", nombre: "Julián",   apellido: "Ortega" },
-    { id: "13-07", nombre: "Abel",     apellido: "Mora" },
-    { id: "13-08", nombre: "Leandro",  apellido: "Rivas" },
-    { id: "13-09", nombre: "Kevin",    apellido: "Guerrero" },
-    { id: "13-10", nombre: "Walter",   apellido: "Carrillo" },
-    { id: "13-11", nombre: "Ramiro",   apellido: "Delgado" },
-    { id: "13-12", nombre: "Gonzalo",  apellido: "Reyes" }
+    { id: "13-01", nombre: "Bernardo",  apellido: "Nant" },
+    { id: "13-02", nombre: "Francesco", apellido: "Digiusto"},
+    { id: "13-03", nombre: "Jano",      apellido: "Nicolau" },
+    { id: "13-04", nombre: "Joaquín",   apellido: "Gamarino" },
+    { id: "13-05", nombre: "Pedro",     apellido: "Siciliani" },
+    { id: "13-06", nombre: "Francisco", apellido: "Samut" },
+    { id: "13-07", nombre: "Gino",      apellido: "Bischof" },
+    { id: "13-08", nombre: "Bruno",     apellido: "Di Virgilio" },
+    { id: "13-09", nombre: "Martín",    apellido: "Reisigier" },
+    { id: "13-10", nombre: "Felipe",    apellido: "Bianchi" },
+    { id: "13-11", nombre: "Malik",     apellido: "Zakka" },
+    { id: "13-12", nombre: "Ezequiel",  apellido: "----- " },
+    { id: "13-13", nombre: "Matías",    apellido: "Bassi" },
   ],
   "2014": [
-    { id: "14-01", nombre: "Claudio",  apellido: "Ponce" },
-    { id: "14-02", nombre: "Adrián",   apellido: "Serrano" },
-    { id: "14-03", nombre: "Renzo",    apellido: "Alvarado" },
-    { id: "14-04", nombre: "Cristóbal",apellido: "Valdés" },
-    { id: "14-05", nombre: "Marcos",   apellido: "Fuentes" },
-    { id: "14-06", nombre: "Daniel",   apellido: "Ibáñez" },
-    { id: "14-07", nombre: "Sebastián",apellido: "Cáceres" },
-    { id: "14-08", nombre: "Maximiliano",apellido: "Peña" },
-    { id: "14-09", nombre: "Damián",   apellido: "Soto" },
-    { id: "14-10", nombre: "Héctor",   apellido: "Palma" },
-    { id: "14-11", nombre: "Eduardo",  apellido: "Quintero" },
-    { id: "14-12", nombre: "Hugo",     apellido: "Barraza" }
+    { id: "14-01", nombre: "Teo",          apellido: "Alassia" },
+    { id: "14-02", nombre: "Valentin",     apellido: "Di Virgilio" },
+    { id: "14-03", nombre: "Pedro",        apellido: "Mariatti" },
+    { id: "14-04", nombre: "Dante",        apellido: "Carne" },
+    { id: "14-05", nombre: "Felipe",       apellido: "Poccioni" },
+    { id: "14-06", nombre: "Salvador",     apellido: "Morassi" },
+    { id: "14-07", nombre: "Fransico",     apellido: "Fornaso" },
+    { id: "14-08", nombre: "Renzo",        apellido: "Falco" },
+    { id: "14-09", nombre: "Vitto",        apellido: "Santillan" },
+    { id: "14-10", nombre: "Ignacio",      apellido: "Di Grado" },
+    { id: "14-11", nombre: "Lorenzo",      apellido: "Bazan" },
+    { id: "14-12", nombre: "Dante",        apellido: "Vanay" },
+    { id: "14-13", nombre: "Juan Agustin", apellido: "Stratico" },
+    { id: "14-14", nombre: "Rafael",       apellido: "Fornaso" },
+    { id: "14-15", nombre: "Gael",         apellido: "Marani" },
+    { id: "14-16", nombre: "Ignacio",      apellido: "Ortiz" },
+    { id: "14-17", nombre: "Juan Ignacio", apellido: "Mercado" },
+    { id: "14-18", nombre: "Gabriel",      apellido: "Priotto" },
+    { id: "14-19", nombre: "Pedro",        apellido: "Marani" },
+    { id: "14-20", nombre: "Juan Ignacio", apellido: "Ruiz" },
+    { id: "14-21", nombre: "Tobias",       apellido: "Ontivero" },
   ],
   "2015": [
-    { id: "15-01", nombre: "Camilo",   apellido: "Tapia" },
-    { id: "15-02", nombre: "Simón",    apellido: "Araya" },
-    { id: "15-03", nombre: "Bastián",  apellido: "Leal" },
-    { id: "15-04", nombre: "Andrés",   apellido: "Salazar" },
-    { id: "15-05", nombre: "Ignacio",  apellido: "Correa" },
-    { id: "15-06", nombre: "Matías",   apellido: "Zamora" },
-    { id: "15-07", nombre: "Tomás",    apellido: "Bravo" },
-    { id: "15-08", nombre: "Alonso",   apellido: "Cortés" },
-    { id: "15-09", nombre: "Vicente",  apellido: "Miranda" },
-    { id: "15-10", nombre: "Nicolás",  apellido: "Contreras" },
-    { id: "15-11", nombre: "Pablo",    apellido: "Riquelme" },
-    { id: "15-12", nombre: "Rodrigo",  apellido: "Vidal" }
+    { id: "15-01", nombre: "Agustino",     apellido: "Marcon" },
+    { id: "15-02", nombre: "Benjamin",     apellido: "Bogado" },
+    { id: "15-03", nombre: "Bruno",        apellido: "Cassina" },
+    { id: "15-04", nombre: "Ciro",         apellido: "Espindola" },
+    { id: "15-05", nombre: "Enzo",         apellido: "Girotti" },
+    { id: "15-06", nombre: "Ezequiel",     apellido: "Reisiguir" },
+    { id: "15-07", nombre: "Juan",         apellido: "Ripacolli" },
+    { id: "15-08", nombre: "Joaquin",      apellido: "Farias" },
+    { id: "15-09", nombre: "Joaquin",      apellido: "Malpassi" },
+    { id: "15-10", nombre: "Lorenzo",      apellido: "Famoso" },
+    { id: "15-11", nombre: "Mateo",        apellido: "Cassina" },
+    { id: "15-12", nombre: "Mateo",        apellido: "Guerra" },
+    { id: "15-13", nombre: "Maximo",       apellido: "Cetti" },
+    { id: "15-14", nombre: "Maximiliano",  apellido: "Del Sol" },
+    { id: "15-15", nombre: "Milko",        apellido: "Mariatti" },
+    { id: "15-16", nombre: "Salvador",     apellido: "Perello" },
+    { id: "15-17", nombre: "Santiago",     apellido: "Mercado" },
+    { id: "15-18", nombre: "Pedro",        apellido: "Gamarino" },
+    { id: "15-19", nombre: "Teo",          apellido: "Alesso" },
+    { id: "15-20", nombre: "Vittorio",     apellido: "Tabasso" }
   ],
   "2016": [
-    { id: "16-01", nombre: "Renato",   apellido: "Jara" },
-    { id: "16-02", nombre: "Joaquín",  apellido: "Arce" },
-    { id: "16-03", nombre: "Fabrizio", apellido: "Concha" },
-    { id: "16-04", nombre: "Dante",    apellido: "Orellana" },
-    { id: "16-05", nombre: "Gael",     apellido: "Neira" },
-    { id: "16-06", nombre: "Bautista", apellido: "Rocha" },
-    { id: "16-07", nombre: "Augusto",  apellido: "Oyarzún" },
-    { id: "16-08", nombre: "Arturo",   apellido: "Muñoz" },
-    { id: "16-09", nombre: "César",    apellido: "Figueroa" },
-    { id: "16-10", nombre: "Milán",    apellido: "Santander" },
-    { id: "16-11", nombre: "Darío",    apellido: "Espejo" },
-    { id: "16-12", nombre: "Elías",    apellido: "Henríquez" }
+    { id: "16-01", nombre: "Gian",       apellido: "Trombetti" },
+    { id: "16-02", nombre: "Horacio",    apellido: "Infante" },
+    { id: "16-03", nombre: "Enzo",       apellido: "Pagani" },
+    { id: "16-04", nombre: "Joaquín",    apellido: "Raissiguier" },
+    { id: "16-05", nombre: "Juan",       apellido: "Nicolau" },
+    { id: "16-06", nombre: "Agustín",    apellido: "Martini" },
+    { id: "16-07", nombre: "Lautaro",    apellido: "Bunziak" },
+    { id: "16-08", nombre: "Augusto",    apellido: "Maroni" },
+    { id: "16-09", nombre: "Camilo",     apellido: "Della Puppa" },
+    { id: "16-10", nombre: "Nachi",      apellido: "Scarafia" },
+    { id: "16-11", nombre: "Octavio",    apellido: "Ortiz" },
+    { id: "16-12", nombre: "Felipe",     apellido: "Perelló" },
+    { id: "16-13", nombre: "Valentino",  apellido: "Simioni" },
+    { id: "16-14", nombre: "Benicio",    apellido: "Bianchi" },
+    { id: "16-15", nombre: "Lorenzo",    apellido: "Savino" },
+    { id: "16-16", nombre: "Alvaro",     apellido: "Spizzo" },
+    { id: "16-17", nombre: "Benjamin",   apellido: "Escariz" },
+    { id: "16-18", nombre: "Felipe",     apellido: "Soldini" },
+    { id: "16-19", nombre: "Augusto",    apellido: "Imarisio" }
   ],
   "2017": [
-    { id: "17-01", nombre: "Aarón",    apellido: "Pinto" },
-    { id: "17-02", nombre: "Benjamín", apellido: "Carrasco" },
-    { id: "17-03", nombre: "Ciro",     apellido: "Salinas" },
-    { id: "17-04", nombre: "Dilan",    apellido: "Sepúlveda" },
-    { id: "17-05", nombre: "Esteban",  apellido: "Quiñones" },
-    { id: "17-06", nombre: "Fausto",   apellido: "Naranjo" },
-    { id: "17-07", nombre: "Germán",   apellido: "Cifuentes" },
-    { id: "17-08", nombre: "Horacio",  apellido: "Pineda" },
-    { id: "17-09", nombre: "Iñaki",    apellido: "Espinosa" },
-    { id: "17-10", nombre: "Jonás",    apellido: "Gutiérrez" },
-    { id: "17-11", nombre: "Kilian",   apellido: "Aravena" },
-    { id: "17-12", nombre: "Lorenzo",  apellido: "Andrade" }
+    { id: "17-01", nombre: "Valentino",   apellido: "Taborda" },
+    { id: "17-02", nombre: "Gaspar",      apellido: "Cassina" },
+    { id: "17-03", nombre: "Agus",        apellido: "Mosca" },
+    { id: "17-04", nombre: "Ciro",        apellido: "Juárez Gabellini" },
+    { id: "17-05", nombre: "Bruno",       apellido: "Trecco Bacaloni" },
+    { id: "17-06", nombre: "Ignacio",     apellido: "Giudicatti" },
+    { id: "17-07", nombre: "Giovanni",    apellido: "Costantino" },
+    { id: "17-08", nombre: "Juan Cruz",   apellido: "Balmaceda" },
+    { id: "17-09", nombre: "Milo",        apellido: "Bartulovic" },
+    { id: "17-10", nombre: "Juan Martín", apellido: "---" },
+    { id: "17-11", nombre: "Percy",       apellido: "Nicolas" },
+    { id: "17-12", nombre: "Lorenzo",     apellido: "Menna" },
   ],
   "2018": [
-    { id: "18-01", nombre: "Mateo",    apellido: "Rubilar" },
-    { id: "18-02", nombre: "Nilo",     apellido: "Chandía" },
-    { id: "18-03", nombre: "Omar",     apellido: "Manríquez" },
-    { id: "18-04", nombre: "Pedro",    apellido: "Villarroel" },
-    { id: "18-05", nombre: "Quentin",  apellido: "Berríos" },
-    { id: "18-06", nombre: "Rafael",   apellido: "Cuevas" },
-    { id: "18-07", nombre: "Samuel",   apellido: "Lorca" },
-    { id: "18-08", nombre: "Tobías",   apellido: "Guzmán" },
-    { id: "18-09", nombre: "Ulises",   apellido: "Riveros" },
-    { id: "18-10", nombre: "Víctor",   apellido: "Poblete" },
-    { id: "18-11", nombre: "Wilfredo", apellido: "Leiva" },
-    { id: "18-12", nombre: "Xavier",   apellido: "Burgos" }
+    { id: "18-01", nombre: "Lorenzo",        apellido: "Gusella" },
+    { id: "18-02", nombre: "Logan",          apellido: "Benitez" },
+    { id: "18-03", nombre: "Juan Ignacio",   apellido: "Luna Pla" },
+    { id: "18-04", nombre: "Felipe",         apellido: "Perazzo Gratarolli" },
+    { id: "18-05", nombre: "Tobias",         apellido: "Rocha" },
+    { id: "18-06", nombre: "Eneas",          apellido: "Ustares" },
+    { id: "18-07", nombre: "Bautista",       apellido: "Bassa" },
+    { id: "18-08", nombre: "Juan Segundo",   apellido: "Bolatti" },
+    { id: "18-09", nombre: "Stefano",        apellido: "Martin Franco" },
+    { id: "18-10", nombre: "Dante",          apellido: "Bolatti" },
+    { id: "18-11", nombre: "Milo",           apellido: "Valdettaro" },
+    { id: "18-12", nombre: "Agustin",        apellido: "Torres" },
+    { id: "18-13", nombre: "Bruno",          apellido: "Fregosi" },
+    { id: "18-14", nombre: "Fran",           apellido: "Merida" },
+    { id: "18-15", nombre: "Bruno",          apellido: "Arrieta" },
+    { id: "18-16", nombre: "Juan Bautista",  apellido: "Gotta" },
+    { id: "18-17", nombre: "Mateo",          apellido: "Santi" }
   ]
 };
 
@@ -739,7 +833,7 @@ function buildPlayerOptions(sinAsistenciaLabel = null) {
   if (sinAsistenciaLabel) opts += `<option value="">${sinAsistenciaLabel}</option>`;
   else opts += `<option value="">Seleccioná jugador...</option>`;
   jugadores.forEach(j => {
-    opts += `<option value="${j.id}">${j.apellido}, ${j.nombre} (${j.id})</option>`;
+    opts += `<option value="${j.id}">${j.apellido}, ${j.nombre} </option>`;
   });
   return opts;
 }
@@ -793,10 +887,11 @@ function addGol() {
         <select id="gol-tipo-${id}">
           <option value="">Tipo...</option>
           <option value="jugada">Jugada</option>
-          <option value="cabezazo">Cabezazo</option>
+          <option value="remate">Remate</option>
+          <option value="centro_cabeza">Centro cabeza</option>
+          <option value="pelota_parada">Pelota parada (corner o tiro libre)</option>
+          <option value="tiro_libre_directo">Tiro libre directo</option>
           <option value="penal">Penal</option>
-          <option value="tiro_libre">Tiro libre</option>
-          <option value="corner">Corner</option>
           <option value="autogol">Autogol</option>
         </select>
       </div>
@@ -948,8 +1043,10 @@ function submitForm() {
     estadisticas: {
       ocasiones_gol_generadas:     parseInt(document.getElementById('ocgol_gen').value)  || 0,
       ocasiones_gol_recibidas:     parseInt(document.getElementById('ocgol_rec').value)  || 0,
-      remates_arco_primer_tiempo:  parseInt(document.getElementById('remates_1t').value) || 0,
-      remates_arco_segundo_tiempo: parseInt(document.getElementById('remates_2t').value) || 0,
+      remates_al_arco:  parseInt(document.getElementById('remates_al_arco').value) || 0,
+      remates_afuera:   parseInt(document.getElementById('remates_afuera').value)  || 0,
+      atajadas_clave_remates:    parseInt(document.getElementById('atajadas_remates').value)   || 0,
+      atajadas_clave_mano_mano:  parseInt(document.getElementById('atajadas_mano_mano').value) || 0,
       valla_invicta: {
         primer_tiempo:  valla1t,
         segundo_tiempo: valla2t,
