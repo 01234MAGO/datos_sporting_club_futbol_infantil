@@ -319,6 +319,102 @@
     </div>
   </div>
 
+  <!-- SECCIÓN: PLANTEL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👕</div>
+      <div>
+        <div class="section-title">Plantel</div>
+        <div class="section-subtitle">Titulares, suplentes, cambios y duración del partido</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <!-- Duración de tiempos -->
+      <div class="form-grid cols-2" style="margin-bottom:16px;">
+        <div class="field">
+          <label>Duración 1° Tiempo <span class="opt">(minutos, opcional)</span></label>
+          <input type="number" id="dur_1t" min="1" max="60" placeholder="ej: 20" value="">
+        </div>
+        <div class="field">
+          <label>Duración 2° Tiempo <span class="opt">(minutos, opcional)</span></label>
+          <input type="number" id="dur_2t" min="1" max="60" placeholder="ej: 20" value="">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Titulares -->
+      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px;">
+        Titulares
+      </div>
+      <div class="events-list" id="titulares-list"></div>
+      <button class="btn-add" onclick="addTitular()" style="margin-bottom:16px;">
+        <span style="font-size:18px">＋</span> Agregar titular
+      </button>
+
+      <div class="divider"></div>
+
+      <!-- Suplentes -->
+      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px; margin-top:4px;">
+        Suplentes
+      </div>
+      <div class="events-list" id="suplentes-list"></div>
+      <button class="btn-add" onclick="addSuplente()" style="margin-bottom:16px;">
+        <span style="font-size:18px">＋</span> Agregar suplente
+      </button>
+
+      <div class="divider"></div>
+
+      <!-- Cambios -->
+      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px; margin-top:4px;">
+        Cambios
+      </div>
+      <div style="font-size:11px; color:var(--text-dim); margin-bottom:10px;">Los cambios permiten calcular minutos jugados por jugador.</div>
+      <div class="events-list" id="cambios-list"></div>
+      <button class="btn-add" onclick="addCambio()">
+        <span style="font-size:18px">＋</span> Agregar cambio
+      </button>
+
+    </div>
+  </div>
+  <!-- SECCIÓN: OBSERVACIONES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <div class="section-title">Observaciones</div>
+        <div class="section-subtitle">Comentarios generales del partido — opcional</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Comentarios <span class="opt">(opcional)</span></label>
+        <textarea id="observaciones" rows="5"
+          placeholder="Ej: buen funcionamiento del equipo en el primer tiempo, mejorar la presión alta..."
+          style="background:var(--bg); border:1px solid var(--border); border-radius:6px; color:var(--text); font-family:'Barlow',sans-serif; font-size:14px; padding:10px 12px; width:100%; resize:vertical; transition:border-color 0.15s;"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL PROFESOR -->
+  <div class="email-section">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--yellow)">✉️</div>
+      <div>
+        <div class="section-title">Confirmación de Envío</div>
+        <div class="section-subtitle">Recibirás una copia del registro en tu correo</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Tu email <span class="req">*</span></label>
+        <input type="email" id="email-profesor" placeholder="tumail@ejemplo.com">
+        <div class="email-note">Campo obligatorio. Recibirás un resumen del partido en este correo.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- SUBMIT -->
   <div class="submit-wrap">
     <button class="btn-submit" onclick="submitForm()">✓ Enviar Registro</button>
@@ -524,6 +620,8 @@ const TIPOS_EVENTO = `
   <option value="centro_cabeza">Centro cabeza</option>
   <option value="pelota_parada">Pelota parada (corner o tiro libre)</option>
   <option value="tiro_libre_directo">Tiro libre directo</option>
+  <option value="mano_a_mano">Mano a mano</option>
+  <option value="jugada">Jugada colectiva</option>
   <option value="penal">Penal</option>`;
 
 const SECTORES = `
@@ -587,7 +685,7 @@ function addGol() {
       <div class="field"><label>Tipo de Gol <span class="req">*</span></label>
         <select id="gol-tipo-${id}">
           <option value="">Tipo...</option>
-          <option value="jugada">Jugada</option>
+          <option value="jugada">Jugada colectiva</option>
           <option value="remate">Remate</option>
           <option value="centro_cabeza">Centro cabeza</option>
           <option value="pelota_parada">Pelota parada</option>
@@ -659,15 +757,33 @@ function addFaltaCometida() {
       <span class="event-num">🟨 Falta Cometida #${id}</span>
       <button class="btn-remove" onclick="removeItem('fc-${id}')" title="Eliminar">✕</button>
     </div>
-    <div class="form-grid cols-3">
+    <div class="form-grid cols-2">
       <div class="field"><label>Jugador <span class="opt">(opcional)</span></label>
         <select id="fc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
       <div class="field"><label>Minuto <span class="opt">(opcional)</span></label>
         <input type="number" min="1" max="120" placeholder="ej: 38" id="fc-min-${id}"></div>
       <div class="field"><label>Sector <span class="opt">(opcional)</span></label>
         <select id="fc-sector-${id}">${SECTORES}</select></div>
+      <div class="field"><label>Tarjeta <span class="opt">(opcional)</span></label>
+        <div class="card-type-toggle">
+          <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">🟨 Amarilla</button>
+          <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">🟥 Roja</button>
+          <button class="card-type-btn"          id="fc-ninguna-${id}"  onclick="setFaltaCard(${id},'')">— Ninguna</button>
+        </div>
+        <input type="hidden" id="fc-tarjeta-${id}" value=""></div>
     </div>`;
   document.getElementById('faltas-com-list').appendChild(el);
+}
+
+function setFaltaCard(id, tipo) {
+  document.getElementById(`fc-tarjeta-${id}`).value = tipo;
+  ['amarilla','roja','ninguna'].forEach(t => {
+    const btn = document.getElementById(`fc-${t}-${id}`);
+    if (!btn) return;
+    btn.classList.remove('active');
+  });
+  if (tipo === 'amarilla') document.getElementById(`fc-amarilla-${id}`).classList.add('active');
+  if (tipo === 'roja')     document.getElementById(`fc-roja-${id}`).classList.add('active');
 }
 
 // ── FALTAS RECIBIDAS
@@ -687,6 +803,80 @@ function addFaltaRecibida() {
         <select id="fr-sector-${id}">${SECTORES}</select></div>
     </div>`;
   document.getElementById('faltas-rec-list').appendChild(el);
+}
+
+// ── Contadores plantel
+let titularCounter = 0, suplenteCounter = 0, cambioCounter = 0;
+
+// ── TITULARES
+function addTitular() {
+  const id = ++titularCounter;
+  const el = document.createElement('div');
+  el.className = 'event-item'; el.id = `tit-${id}`;
+  el.innerHTML = `
+    <div class="event-item-header">
+      <span class="event-num">👕 Titular #${id}</span>
+      <button class="btn-remove" onclick="removeItem('tit-${id}')" title="Eliminar">✕</button>
+    </div>
+    <div class="form-grid cols-2">
+      <div class="field"><label>Jugador <span class="opt">(opcional)</span></label>
+        <select id="tit-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
+      <div class="field"><label>Posición <span class="opt">(opcional)</span></label>
+        <select id="tit-pos-${id}">
+          <option value="">Posición... (opcional)</option>
+          <option value="arquero">Arquero</option>
+          <option value="defensor">Defensor</option>
+          <option value="mediocampista">Mediocampista</option>
+          <option value="delantero">Delantero</option>
+        </select></div>
+    </div>`;
+  document.getElementById('titulares-list').appendChild(el);
+}
+
+// ── SUPLENTES
+function addSuplente() {
+  const id = ++suplenteCounter;
+  const el = document.createElement('div');
+  el.className = 'event-item'; el.id = `sup-${id}`;
+  el.innerHTML = `
+    <div class="event-item-header">
+      <span class="event-num">🔄 Suplente #${id}</span>
+      <button class="btn-remove" onclick="removeItem('sup-${id}')" title="Eliminar">✕</button>
+    </div>
+    <div class="form-grid cols-2">
+      <div class="field"><label>Jugador <span class="opt">(opcional)</span></label>
+        <select id="sup-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
+      <div class="field"><label>Posición <span class="opt">(opcional)</span></label>
+        <select id="sup-pos-${id}">
+          <option value="">Posición... (opcional)</option>
+          <option value="arquero">Arquero</option>
+          <option value="defensor">Defensor</option>
+          <option value="mediocampista">Mediocampista</option>
+          <option value="delantero">Delantero</option>
+        </select></div>
+    </div>`;
+  document.getElementById('suplentes-list').appendChild(el);
+}
+
+// ── CAMBIOS
+function addCambio() {
+  const id = ++cambioCounter;
+  const el = document.createElement('div');
+  el.className = 'event-item'; el.id = `cam-${id}`;
+  el.innerHTML = `
+    <div class="event-item-header">
+      <span class="event-num">🔄 Cambio #${id}</span>
+      <button class="btn-remove" onclick="removeItem('cam-${id}')" title="Eliminar">✕</button>
+    </div>
+    <div class="form-grid cols-3">
+      <div class="field"><label>Sale <span class="opt">(opcional)</span></label>
+        <select id="cam-sale-${id}" class="player-select">${buildPlayerOptions('Jugador que sale...')}</select></div>
+      <div class="field"><label>Entra <span class="opt">(opcional)</span></label>
+        <select id="cam-entra-${id}" class="player-select">${buildPlayerOptions('Jugador que entra...')}</select></div>
+      <div class="field"><label>Minuto <span class="opt">(opcional)</span></label>
+        <input type="number" min="1" max="120" placeholder="ej: 35" id="cam-min-${id}"></div>
+    </div>`;
+  document.getElementById('cambios-list').appendChild(el);
 }
 
 // ── VALIDACIÓN
@@ -768,9 +958,10 @@ function submitForm() {
   for (let i = 1; i <= faltaComCounter; i++) {
     if (!document.getElementById(`fc-${i}`)) continue;
     faltas_cometidas.push({
-      jugador_id: document.getElementById(`fc-jug-${i}`).value    || null,
-      minuto:     document.getElementById(`fc-min-${i}`).value    || null,
-      sector:     document.getElementById(`fc-sector-${i}`).value || null,
+      jugador_id: document.getElementById(`fc-jug-${id}`).value    || null,
+      minuto:     document.getElementById(`fc-min-${id}`).value    || null,
+      sector:     document.getElementById(`fc-sector-${id}`).value || null,
+      tarjeta:    document.getElementById(`fc-tarjeta-${id}`).value || null,
     });
   }
 
@@ -781,6 +972,37 @@ function submitForm() {
     faltas_recibidas.push({
       minuto: document.getElementById(`fr-min-${i}`).value    || null,
       sector: document.getElementById(`fr-sector-${i}`).value || null,
+    });
+  }
+
+  // Titulares
+  const titulares = [];
+  for (let i = 1; i <= titularCounter; i++) {
+    if (!document.getElementById(`tit-${i}`)) continue;
+    titulares.push({
+      jugador_id: document.getElementById(`tit-jug-${i}`).value || null,
+      posicion:   document.getElementById(`tit-pos-${i}`).value || null,
+    });
+  }
+
+  // Suplentes
+  const suplentes = [];
+  for (let i = 1; i <= suplenteCounter; i++) {
+    if (!document.getElementById(`sup-${i}`)) continue;
+    suplentes.push({
+      jugador_id: document.getElementById(`sup-jug-${i}`).value || null,
+      posicion:   document.getElementById(`sup-pos-${i}`).value || null,
+    });
+  }
+
+  // Cambios
+  const cambios = [];
+  for (let i = 1; i <= cambioCounter; i++) {
+    if (!document.getElementById(`cam-${i}`)) continue;
+    cambios.push({
+      sale_id:    document.getElementById(`cam-sale-${i}`).value  || null,
+      entra_id:   document.getElementById(`cam-entra-${i}`).value || null,
+      minuto:     document.getElementById(`cam-min-${i}`).value   || null,
     });
   }
 
@@ -797,7 +1019,15 @@ function submitForm() {
       primer_tiempo: valla1t, segundo_tiempo: valla2t,
       partido: valla1t && valla2t && gContra === 0
     },
-    goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas
+    goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
+    plantel: {
+      duracion_1t: document.getElementById('dur_1t').value || null,
+      duracion_2t: document.getElementById('dur_2t').value || null,
+      titulares,
+      suplentes,
+      cambios
+    },
+    observaciones: document.getElementById('observaciones').value.trim() || null,
   };
 
   const btn = document.querySelector('.btn-submit');
@@ -839,6 +1069,13 @@ function resetForm() {
   localiaSeleccionada = null;
   document.getElementById('opt-local').className     = 'radio-opt';
   document.getElementById('opt-visitante').className = 'radio-opt';
+  document.getElementById('observaciones').value = '';
+  document.getElementById('dur_1t').value = '';
+  document.getElementById('dur_2t').value = '';
+  document.getElementById('titulares-list').innerHTML  = '';
+  document.getElementById('suplentes-list').innerHTML  = '';
+  document.getElementById('cambios-list').innerHTML    = '';
+  titularCounter = 0; suplenteCounter = 0; cambioCounter = 0;
 }
 
 function showToast(msg, tipo = 'ok') {
