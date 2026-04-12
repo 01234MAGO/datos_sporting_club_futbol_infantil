@@ -312,15 +312,11 @@
     </div>
     <div class="section-body">
 
-      <!-- Duración de tiempos -->
+      <!-- Duración del partido -->
       <div class="form-grid cols-2" style="margin-bottom:16px;">
         <div class="field">
-          <label>Duración 1° Tiempo <span class="opt">(minutos, opcional)</span></label>
-          <input type="number" id="dur_1t" min="1" max="60" placeholder="ej: 20" value="">
-        </div>
-        <div class="field">
-          <label>Duración 2° Tiempo <span class="opt">(minutos, opcional)</span></label>
-          <input type="number" id="dur_2t" min="1" max="60" placeholder="ej: 20" value="">
+          <label>Duración de cada tiempo <span class="opt">(minutos, opcional)</span></label>
+          <input type="number" id="dur_tiempo" min="1" max="60" placeholder="ej: 20 (vale para ambos tiempos)">
         </div>
       </div>
 
@@ -1003,8 +999,7 @@ function submitForm() {
     },
     goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
     plantel: {
-      duracion_1t: document.getElementById('dur_1t').value || null,
-      duracion_2t: document.getElementById('dur_2t').value || null,
+      duracion_tiempo: document.getElementById('dur_tiempo').value || null,
       titulares,
       suplentes,
       cambios
@@ -1052,8 +1047,7 @@ function resetForm() {
   document.getElementById('opt-local').className     = 'radio-opt';
   document.getElementById('opt-visitante').className = 'radio-opt';
   document.getElementById('observaciones').value = '';
-  document.getElementById('dur_1t').value = '';
-  document.getElementById('dur_2t').value = '';
+  document.getElementById('dur_tiempo').value = '';
   document.getElementById('titulares-list').innerHTML  = '';
   document.getElementById('suplentes-list').innerHTML  = '';
   document.getElementById('cambios-list').innerHTML    = '';
