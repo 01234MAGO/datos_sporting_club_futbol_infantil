@@ -11,7 +11,7 @@
     --surface:   #161b22;
     --surface2:  #1e2530;
     --border:    #2d3748;
-    --green:     #d1d360;
+    --green:     #60a9d3;
     --green-dim: #030e70;
     --yellow:    #f1c40f;
     --red:       #ff1900;
@@ -197,30 +197,6 @@
           <input type="number" id="goles_contra" min="0" max="99" value="0">
         </div>
       </div>
-      <div class="divider"></div>
-      <div class="form-grid cols-2">
-        <div class="field">
-          <label>Torneo <span class="req">*</span></label>
-          <select id="torneo">
-            <option value="">Seleccioná el torneo...</option>
-            <option value="apertura">Apertura</option>
-            <option value="clausura">Clausura</option>
-            <option value="amistoso">Amistoso</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Duración de cada tiempo</label>
-          <select id="dur_tiempo">
-            <option value="">Seleccioná...</option>
-            <option value="20">20 minutos</option>
-            <option value="25">25 minutos</option>
-            <option value="30">30 minutos</option>
-            <option value="35">35 minutos</option>
-            <option value="40">40 minutos</option>
-            <option value="45">45 minutos</option>
-          </select>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -234,6 +210,16 @@
       </div>
     </div>
     <div class="section-body">
+
+      <!-- Duración del partido -->
+      <div class="form-grid cols-2" style="margin-bottom:16px;">
+        <div class="field">
+          <label>Minutos de juego por tiempo <span class="opt"></span></label>
+          <input type="number" id="dur_tiempo" min="1" max="60" placeholder="cada tiempo dura:">
+        </div>
+      </div>
+
+      <div class="divider"></div>
 
       <!-- Titulares -->
       <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px;">
@@ -267,6 +253,32 @@
         <span style="font-size:18px">＋</span> Agregar cambio
       </button>
 
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: VALLAS INVICTAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🛡️</div>
+      <div>
+        <div class="section-title">Valla Invicta</div>
+        <div class="section-subtitle">Tiempos sin goles recibidos</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div style="display:flex; gap:10px;">
+        <label class="check-item" id="check-valla1" onclick="toggleCheck('valla_1t')" style="flex:1">
+          <input type="checkbox" id="valla_1t">
+          <div class="check-box">✓</div>
+          <div class="check-label">1° Tiempo</div>
+        </label>
+        <label class="check-item" id="check-valla2" onclick="toggleCheck('valla_2t')" style="flex:1">
+          <input type="checkbox" id="valla_2t">
+          <div class="check-box">✓</div>
+          <div class="check-label">2° Tiempo</div>
+        </label>
+      </div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:8px;">ℹ️ La valla del partido completo se calcula automáticamente.</div>
     </div>
   </div>
 
@@ -934,10 +946,10 @@ function submitForm() {
   for (let i = 1; i <= faltaComCounter; i++) {
     if (!document.getElementById(`fc-${i}`)) continue;
     faltas_cometidas.push({
-      jugador_id: document.getElementById(`fc-jug-${i}`).value    || null,
-      minuto:     document.getElementById(`fc-min-${i}`).value    || null,
-      sector:     document.getElementById(`fc-sector-${i}`).value || null,
-      tarjeta:    document.getElementById(`fc-tarjeta-${i}`).value || null,
+      jugador_id: document.getElementById(`fc-jug-${id}`).value    || null,
+      minuto:     document.getElementById(`fc-min-${id}`).value    || null,
+      sector:     document.getElementById(`fc-sector-${id}`).value || null,
+      tarjeta:    document.getElementById(`fc-tarjeta-${id}`).value || null,
     });
   }
 
@@ -983,16 +995,17 @@ function submitForm() {
   }
 
   const data = {
-    metadata: { version_formulario: "2.1", timestamp_envio: new Date().toISOString() },
+    metadata: { version_formulario: "2.0", timestamp_envio: new Date().toISOString() },
     profesor_email: email,
     partido: {
       id_partido: `${cat}_${fecha}_${Date.now()}`,
-      categoria: cat,
-      fecha,
-      torneo: document.getElementById('torneo').value || null,
-      rival: document.getElementById('rival').value,
+      categoria: cat, fecha, rival: document.getElementById('rival').value,
       localia: localiaSeleccionada,
       resultado: { goles_favor: gFavor, goles_contra: gContra }
+    },
+    valla_invicta: {
+      primer_tiempo: valla1t, segundo_tiempo: valla2t,
+      partido: valla1t && valla2t && gContra === 0
     },
     goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
     plantel: {
@@ -1031,6 +1044,10 @@ function resetForm() {
   document.getElementById('goles_favor').value  = '0';
   document.getElementById('goles_contra').value = '0';
   document.getElementById('email-profesor').value = '';
+  document.getElementById('valla_1t').checked = false;
+  document.getElementById('valla_2t').checked = false;
+  document.getElementById('check-valla1').classList.remove('checked');
+  document.getElementById('check-valla2').classList.remove('checked');
   ['goles-list','ocasiones-list','atajadas-list','faltas-com-list','faltas-rec-list'].forEach(id => {
     document.getElementById(id).innerHTML = '';
   });
