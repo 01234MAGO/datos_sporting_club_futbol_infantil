@@ -23,7 +23,7 @@
   body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 60px; }
 
   .header {
-    background: linear-gradient(135deg, #3c9dd4 0%, #0d1117 60%);
+    background: linear-gradient(135deg, #60a9d3 0%, #000307 60%);
     border-bottom: 2px solid var(--green);
     padding: 10px 20px 8px;
     text-align: center; position: sticky; top: 0; z-index: 100;
@@ -109,7 +109,7 @@
 <body>
 
 <div class="header">
-  <div class="header-badge">Sporting Club Futbol</div>
+  <div class="header-badge">Sporting Club Futbol Infantil</div>
   <h1>Registro de <span>Partido</span></h1>
   <div class="header-meta">Completar dentro de las 24 hs del partido</div>
 </div>
@@ -121,8 +121,8 @@
     <div class="section-header">
       <div class="section-icon">📋</div>
       <div>
-        <div class="section-title">Datos del Partido</div>
-        <div class="section-subtitle">Información general del encuentro</div>
+        <div class="section-title">Información del Partido</div>
+        <div class="section-subtitle">Datos general del encuentro</div>
       </div>
     </div>
     <div class="section-body">
@@ -179,9 +179,9 @@
       <div class="divider"></div>
       <div class="form-grid cols-2">
         <div class="field">
-          <label>Torneo <span class="req">*</span></label>
+          <label>Competencia <span class="req">*</span></label>
           <select id="torneo">
-            <option value="">Seleccioná el torneo...</option>
+            <option value="">Seleccioná la competencia...</option>
             <option value="apertura">Apertura</option>
             <option value="clausura">Clausura</option>
             <option value="amistoso">Amistoso</option>
@@ -190,7 +190,7 @@
         <div class="field">
           <label>Minutos por tiempo</label>
           <select id="dur_tiempo">
-            <option value="">Seleccioná...</option>
+            <option value="">Seleccioná el tiempo...</option>
             <option value="20">20 minutos</option>
             <option value="25">25 minutos</option>
             <option value="30">30 minutos</option>
@@ -233,7 +233,6 @@
       <button class="btn-add" onclick="addSuplente()" style="margin-bottom:16px;"><span style="font-size:18px">＋</span> Agregar suplente</button>
       <div class="divider"></div>
       <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-dim);margin-bottom:8px;">Cambios</div>
-      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px;">Los cambios permiten calcular minutos jugados por jugador.</div>
       <div class="events-list" id="cambios-list"></div>
       <button class="btn-add" onclick="addCambio()"><span style="font-size:18px">＋</span> Agregar cambio</button>
     </div>
@@ -260,7 +259,7 @@
       <div class="section-icon">🎯</div>
       <div>
         <div class="section-title">Ocasiones de Gol</div>
-        <div class="section-subtitle">Chances claras generadas — todos los campos opcionales</div>
+        <div class="section-subtitle">Chances claras generadas</div>
       </div>
     </div>
     <div class="section-body">
@@ -275,7 +274,7 @@
       <div class="section-icon">🧤</div>
       <div>
         <div class="section-title">Atajadas Clave</div>
-        <div class="section-subtitle">Intervenciones decisivas del arquero — todos los campos opcionales</div>
+        <div class="section-subtitle">Intervenciones decisivas del arquero</div>
       </div>
     </div>
     <div class="section-body">
@@ -290,7 +289,7 @@
       <div class="section-icon">🪓</div>
       <div>
         <div class="section-title">Faltas Cometidas</div>
-        <div class="section-subtitle">Faltas realizadas por el equipo — todos los campos opcionales</div>
+        <div class="section-subtitle">Faltas realizadas por el equipo</div>
       </div>
     </div>
     <div class="section-body">
@@ -305,7 +304,7 @@
       <div class="section-icon">❎</div>
       <div>
         <div class="section-title">Faltas Recibidas</div>
-        <div class="section-subtitle">Faltas sufridas por el equipo — todos los campos opcionales</div>
+        <div class="section-subtitle">Faltas sufridas por el equipo</div>
       </div>
     </div>
     <div class="section-body">
@@ -320,14 +319,14 @@
       <div class="section-icon">📝</div>
       <div>
         <div class="section-title">Observaciones</div>
-        <div class="section-subtitle">Comentarios propios y del rival</div>
+        <div class="section-subtitle">Comentarios propios y del rival sobre el partido</div>
       </div>
     </div>
     <div class="section-body">
       <div class="field">
-        <label>Comentarios</label>
+        <label>Anotaciones</label>
         <textarea id="observaciones" rows="5"
-          placeholder="Ej: buen funcionamiento del equipo en el primer tiempo..."
+          placeholder="Ej: buen funcionamiento del equipo en el primer tiempo y el equipo rival jugo con un 9 fijo"
           style="background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 12px;width:100%;resize:vertical;transition:border-color 0.15s;"></textarea>
       </div>
     </div>
@@ -552,16 +551,16 @@ let localiaSeleccionada=null;
 
 const TIPOS_EVENTO = `
   <option value="">Tipo</option>
-  <option value="remate">Remate</option>
-  <option value="centro_cabeza">Centro cabeza</option>
-  <option value="pelota_parada">Pelota parada (corner o tiro libre)</option>
-  <option value="tiro_libre_directo">Tiro libre directo</option>
-  <option value="mano_a_mano">Mano a mano</option>
   <option value="jugada">Jugada colectiva</option>
+  <option value="ataque_directo">Ataque directo (mano a mano)</option>
+  <option value="remate">Remate</option>
+  <option value="centro">Centro</option>
+  <option value="pelota_parada">Pelota parada (2da pelota)</option>
+  <option value="tiro_libre_directo">Tiro libre directo</option>
   <option value="penal">Penal</option>`;
 
 const SECTORES = `
-  <option value="">Sector</option>
+  <option value="">Sector de la cancha</option>
   <option value="alto">Alto</option>
   <option value="medio">Medio</option>
   <option value="bajo">Bajo</option>`;
@@ -632,9 +631,10 @@ function addGol() {
         <select id="gol-tipo-${id}">
           <option value="">Tipo...</option>
           <option value="jugada">Jugada colectiva</option>
+          <option value="ataque_directo">Ataque directo</option>
           <option value="remate">Remate</option>
-          <option value="centro_cabeza">Centro cabeza</option>
-          <option value="pelota_parada">Pelota parada</option>
+          <option value="centro">Centro</option>
+          <option value="pelota_parada">Pelota parada (2da pelota)</option>
           <option value="tiro_libre_directo">Tiro libre directo</option>
           <option value="penal">Penal</option>
           <option value="autogol">Autogol</option>
@@ -701,8 +701,8 @@ function addFaltaCometida() {
       <div class="field"><label>Sector</label><select id="fc-sector-${id}">${SECTORES}</select></div>
       <div class="field"><label>Tarjeta</label>
         <div class="card-type-toggle">
-          <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">Amarilla</button>
-          <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">Roja</button>
+          <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">🟨 Amarilla</button>
+          <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">🟥 Roja</button>
         </div>
         <input type="hidden" id="fc-tarjeta-${id}" value=""></div>
     </div>`;
