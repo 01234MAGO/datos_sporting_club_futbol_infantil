@@ -59,8 +59,7 @@
     transition: border-color 0.15s, box-shadow 0.15s;
     appearance: none; -webkit-appearance: none;
   }
-  input:focus, select:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(46, 133, 204, 0.15); }
-  input.invalid { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(231,76,60,0.15) !important; }
+  input:focus, select:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,133,204,0.15); }
   input::placeholder { color: var(--text-dim); }
   select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238b949e' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
   select option { background: #1e2530; }
@@ -68,15 +67,8 @@
   .radio-group { display: flex; gap: 10px; }
   .radio-opt { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; transition: all 0.15s; font-size: 14px; font-weight: 500; }
   .radio-opt input[type="radio"] { display: none; }
-  .radio-opt.selected-local  { border-color: var(--green); background: rgba(46, 133, 204, 0.12); color: var(--green); }
+  .radio-opt.selected-local  { border-color: var(--green); background: rgba(46,133,204,0.12); color: var(--green); }
   .radio-opt.selected-visit  { border-color: #e67e22; background: rgba(230,126,34,0.12); color: #e67e22; }
-
-  .check-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.15s; user-select: none; }
-  .check-item input[type="checkbox"] { display: none; }
-  .check-box { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
-  .check-item.checked .check-box { background: var(--green); border-color: var(--green); color: #000; }
-  .check-item.checked { border-color: var(--green-dim); }
-  .check-label { flex: 1; font-weight: 500; }
 
   .events-list { display: flex; flex-direction: column; gap: 10px; }
   .event-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; position: relative; animation: slideIn 0.2s ease; }
@@ -86,47 +78,45 @@
   .btn-remove { background: none; border: 1px solid var(--border); color: var(--text-dim); cursor: pointer; width: 26px; height: 26px; border-radius: 5px; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
   .btn-remove:hover { border-color: var(--red); color: var(--red); background: rgba(231,76,60,0.1); }
   .btn-add { width: 100%; padding: 11px; background: transparent; border: 1px dashed var(--border); border-radius: 7px; color: var(--text-dim); font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; }
-  .btn-add:hover { border-color: var(--green); color: var(--green); background: rgba(29, 90, 204, 0.06); }
+  .btn-add:hover { border-color: var(--green); color: var(--green); background: rgba(29,90,204,0.06); }
 
   .card-type-toggle { display: flex; gap: 8px; }
   .card-type-btn { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text-dim); font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.15s; text-align: center; }
   .card-type-btn.amarilla.active { border-color: var(--yellow); background: rgba(241,196,15,0.15); color: var(--yellow); }
-  .card-type-btn.roja.active    { border-color: var(--red);    background: rgba(218, 41, 22, 0.15);   color: var(--red); }
+  .card-type-btn.roja.active    { border-color: var(--red); background: rgba(218,41,22,0.15); color: var(--red); }
 
   .divider { height: 1px; background: var(--border); margin: 16px 0; }
 
   .email-section { background: var(--surface); border: 1px solid var(--green); border-radius: var(--radius); margin-bottom: 20px; overflow: hidden; }
   .email-note { font-size: 12px; color: var(--text-dim); margin-top: 6px; padding: 0 2px; }
 
+  textarea:focus { outline: none; border-color: var(--green) !important; box-shadow: 0 0 0 3px rgba(46,133,204,0.15); }
+
   .submit-wrap { text-align: center; margin-top: 28px; }
-  .btn-submit { background: var(--green); color: #000; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; border: none; border-radius: 8px; padding: 16px 48px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 20px rgba(46, 146, 204, 0.3); }
+  .btn-submit { background: var(--green); color: #000; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; border: none; border-radius: 8px; padding: 16px 48px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 20px rgba(46,146,204,0.3); }
   .btn-submit:hover { background: #419cd1; transform: translateY(-1px); }
   .btn-submit:disabled { background: var(--border); color: var(--text-dim); cursor: not-allowed; transform: none; box-shadow: none; }
 
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green); color: #000; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.4); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 999; max-width: 90vw; text-align: center; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green); color: #000; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.4); transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275); z-index: 999; max-width: 90vw; text-align: center; }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.error { background: var(--red); color: #fff; }
   .toast.info  { background: var(--yellow); color: #000; }
 
-  @media (max-width: 540px) {
-    .form-grid.cols-2, .form-grid.cols-3 { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 380px) {
-    .form-grid.cols-2, .form-grid.cols-3 { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 540px) { .form-grid.cols-2, .form-grid.cols-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 380px) { .form-grid.cols-2, .form-grid.cols-3 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-badge">⚽ Sporting Club Futbol</div>
+  <div class="header-badge">Sporting Club Futbol</div>
   <h1>Registro de <span>Partido</span></h1>
   <div class="header-meta">Completar dentro de las 24 hs del partido</div>
 </div>
 
 <div class="container">
 
-  <!-- SECCIÓN 1: DATOS DEL PARTIDO -->
+  <!-- DATOS DEL PARTIDO -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">📋</div>
@@ -162,7 +152,7 @@
           <label>Rival <span class="req">*</span></label>
           <select id="rival">
             <option value="">Seleccioná el rival...</option>
-            <option value="Atlético Guatimozín">Atlético Guatimozín</option>
+            <option value="Atletico Guatimozin">Atlético Guatimozín</option>
             <option value="Boca Camilo">Boca Camilo</option>
             <option value="Corralense">Corralense</option>
             <option value="Juventud Camilo">Juventud Camilo</option>
@@ -178,12 +168,36 @@
           <label>Localía <span class="req">*</span></label>
           <div class="radio-group">
             <label class="radio-opt" id="opt-local" onclick="setLocalia('local')">
-              <input type="radio" name="localia" value="local"> 🏠 Local
+              <input type="radio" name="localia" value="local"> Local
             </label>
             <label class="radio-opt" id="opt-visitante" onclick="setLocalia('visitante')">
-              <input type="radio" name="localia" value="visitante"> ✈️ Visitante
+              <input type="radio" name="localia" value="visitante"> Visitante
             </label>
           </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="form-grid cols-2">
+        <div class="field">
+          <label>Torneo <span class="req">*</span></label>
+          <select id="torneo">
+            <option value="">Seleccioná el torneo...</option>
+            <option value="apertura">Apertura</option>
+            <option value="clausura">Clausura</option>
+            <option value="amistoso">Amistoso</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Minutos por tiempo</label>
+          <select id="dur_tiempo">
+            <option value="">Seleccioná...</option>
+            <option value="20">20 minutos</option>
+            <option value="25">25 minutos</option>
+            <option value="30">30 minutos</option>
+            <option value="35">35 minutos</option>
+            <option value="40">40 minutos</option>
+            <option value="45">45 minutos</option>
+          </select>
         </div>
       </div>
       <div class="divider"></div>
@@ -200,7 +214,7 @@
     </div>
   </div>
 
-  <!-- SECCIÓN: PLANTEL -->
+  <!-- PLANTEL -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">👤</div>
@@ -210,85 +224,28 @@
       </div>
     </div>
     <div class="section-body">
-
-      <!-- Duración del partido -->
-      <div class="form-grid cols-2" style="margin-bottom:16px;">
-        <div class="field">
-          <label>Minutos de juego por tiempo <span class="opt"></span></label>
-          <input type="number" id="dur_tiempo" min="1" max="60" placeholder="cada tiempo dura:">
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Titulares -->
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px;">
-        Titulares
-      </div>
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-dim);margin-bottom:8px;">Titulares</div>
       <div class="events-list" id="titulares-list"></div>
-      <button class="btn-add" onclick="addTitular()" style="margin-bottom:16px;">
-        <span style="font-size:18px">＋</span> Agregar titular
-      </button>
-
+      <button class="btn-add" onclick="addTitular()" style="margin-bottom:16px;"><span style="font-size:18px">＋</span> Agregar titular</button>
       <div class="divider"></div>
-
-      <!-- Suplentes -->
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px; margin-top:4px;">
-        Suplentes
-      </div>
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-dim);margin-bottom:8px;">Suplentes</div>
       <div class="events-list" id="suplentes-list"></div>
-      <button class="btn-add" onclick="addSuplente()" style="margin-bottom:16px;">
-        <span style="font-size:18px">＋</span> Agregar suplente
-      </button>
-
+      <button class="btn-add" onclick="addSuplente()" style="margin-bottom:16px;"><span style="font-size:18px">＋</span> Agregar suplente</button>
       <div class="divider"></div>
-
-      <!-- Cambios -->
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-dim); margin-bottom:8px; margin-top:4px;">
-        Cambios
-      </div>
-      <div style="font-size:11px; color:var(--text-dim); margin-bottom:10px;">Los cambios permiten calcular minutos jugados por jugador.</div>
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-dim);margin-bottom:8px;">Cambios</div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px;">Los cambios permiten calcular minutos jugados por jugador.</div>
       <div class="events-list" id="cambios-list"></div>
-      <button class="btn-add" onclick="addCambio()">
-        <span style="font-size:18px">＋</span> Agregar cambio
-      </button>
-
+      <button class="btn-add" onclick="addCambio()"><span style="font-size:18px">＋</span> Agregar cambio</button>
     </div>
   </div>
 
-  <!-- SECCIÓN 2: VALLAS INVICTAS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon">🛡️</div>
-      <div>
-        <div class="section-title">Valla Invicta</div>
-        <div class="section-subtitle">Tiempos sin goles recibidos</div>
-      </div>
-    </div>
-    <div class="section-body">
-      <div style="display:flex; gap:10px;">
-        <label class="check-item" id="check-valla1" onclick="toggleCheck('valla_1t')" style="flex:1">
-          <input type="checkbox" id="valla_1t">
-          <div class="check-box">✓</div>
-          <div class="check-label">1° Tiempo</div>
-        </label>
-        <label class="check-item" id="check-valla2" onclick="toggleCheck('valla_2t')" style="flex:1">
-          <input type="checkbox" id="valla_2t">
-          <div class="check-box">✓</div>
-          <div class="check-label">2° Tiempo</div>
-        </label>
-      </div>
-      <div style="font-size:11px; color:var(--text-dim); margin-top:8px;">ℹ️ La valla del partido completo se calcula automáticamente.</div>
-    </div>
-  </div>
-
-  <!-- SECCIÓN 3: GOLES -->
+  <!-- GOLES -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">⚽</div>
       <div>
         <div class="section-title">Goles</div>
-        <div class="section-subtitle">Detalle de cada gol anotado por el equipo</div>
+        <div class="section-subtitle">Detalle de cada gol anotado</div>
       </div>
     </div>
     <div class="section-body">
@@ -297,13 +254,13 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 4: OCASIONES DE GOL -->
+  <!-- OCASIONES DE GOL -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">🎯</div>
       <div>
         <div class="section-title">Ocasiones de Gol</div>
-        <div class="section-subtitle">Chances claras generadas </div>
+        <div class="section-subtitle">Chances claras generadas — todos los campos opcionales</div>
       </div>
     </div>
     <div class="section-body">
@@ -312,13 +269,13 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 5: ATAJADAS CLAVE -->
+  <!-- ATAJADAS CLAVE -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">🧤</div>
       <div>
         <div class="section-title">Atajadas Clave</div>
-        <div class="section-subtitle">Intervenciones decisivas del arquero </div>
+        <div class="section-subtitle">Intervenciones decisivas del arquero — todos los campos opcionales</div>
       </div>
     </div>
     <div class="section-body">
@@ -327,13 +284,13 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 6: FALTAS COMETIDAS -->
+  <!-- FALTAS COMETIDAS -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">🪓</div>
       <div>
         <div class="section-title">Faltas Cometidas</div>
-        <div class="section-subtitle">Faltas realizadas por el equipo </div>
+        <div class="section-subtitle">Faltas realizadas por el equipo — todos los campos opcionales</div>
       </div>
     </div>
     <div class="section-body">
@@ -342,13 +299,13 @@
     </div>
   </div>
 
-  <!-- SECCIÓN 7: FALTAS RECIBIDAS -->
+  <!-- FALTAS RECIBIDAS -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">❎</div>
       <div>
         <div class="section-title">Faltas Recibidas</div>
-        <div class="section-subtitle">Faltas sufridas por el equipo </div>
+        <div class="section-subtitle">Faltas sufridas por el equipo — todos los campos opcionales</div>
       </div>
     </div>
     <div class="section-body">
@@ -357,27 +314,26 @@
     </div>
   </div>
 
-
-  <!-- SECCIÓN: OBSERVACIONES -->
+  <!-- OBSERVACIONES -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon">📝</div>
       <div>
         <div class="section-title">Observaciones</div>
-        <div class="section-subtitle">Comentarios generales del partido</div>
+        <div class="section-subtitle">Comentarios propios y del rival</div>
       </div>
     </div>
     <div class="section-body">
       <div class="field">
-        <label>Comentarios <span class="opt"></span></label>
+        <label>Comentarios</label>
         <textarea id="observaciones" rows="5"
-          placeholder="Ej: buen funcionamiento del equipo en el primer tiempo, mejorar la presión alta..."
-          style="background:var(--bg); border:1px solid var(--border); border-radius:6px; color:var(--text); font-family:'Barlow',sans-serif; font-size:14px; padding:10px 12px; width:100%; resize:vertical; transition:border-color 0.15s;"></textarea>
+          placeholder="Ej: buen funcionamiento del equipo en el primer tiempo..."
+          style="background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 12px;width:100%;resize:vertical;transition:border-color 0.15s;"></textarea>
       </div>
     </div>
   </div>
 
-  <!-- EMAIL PROFESOR -->
+  <!-- EMAIL -->
   <div class="email-section">
     <div class="section-header">
       <div class="section-icon" style="background:var(--yellow)">✉️</div>
@@ -403,9 +359,9 @@
 </div><!-- /container -->
 
 <!-- FOOTER -->
-<div style="text-align:center; padding:24px 20px 32px; border-top:1px solid var(--border); margin-top:8px;">
-  <div style="font-family:'Barlow Condensed',sans-serif; font-size:13px; color:var(--text-dim); letter-spacing:0.5px; line-height:1.7;">
-    © 2026 <span style="color:var(--text); font-weight:600;">Ernesto Magolini</span> — Todos los derechos reservados.<br>
+<div style="text-align:center;padding:24px 20px 32px;border-top:1px solid var(--border);margin-top:8px;">
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--text-dim);letter-spacing:0.5px;line-height:1.7;">
+    © 2026 <span style="color:var(--text);font-weight:600;">Ernesto Magolini</span> — Todos los derechos reservados.<br>
     Este software, su diseño, estructura de datos y metodología de análisis son propiedad exclusiva de Ernesto Magolini.<br>
     Queda prohibida su reproducción, distribución o uso sin autorización expresa del titular.
   </div>
@@ -415,40 +371,40 @@
 
 <script>
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzA9QL1Werv4JmdUWIJUMCnZJTENlmrsXeGdosRcr_bAbAtu9Oq190cHFA8DBbAE1rk/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzWO4HRE7eMezoyJXm8fMgTw2Bkv8wWjWuh7cz70FNfgJfwj0JK35yGcSbdRPUaAr9O/exec",
 };
 
 const JUGADORES = {
   "quinta_division": [
-    { id: "5A-01", nombre: "Samir",    apellido: "Seguetti" },
-    { id: "5A-02", nombre: "Lautaro",    apellido: "Depetris" },
-    { id: "5A-03", nombre: "Maximo",   apellido: "Porcel" },
-    { id: "5A-04", nombre: "Bautista", apellido: "Fornaso" },
-    { id: "5A-05", nombre: "Felipe",       apellido: "Farias" },
-    { id: "5A-06", nombre: "Juan",         apellido: "Figueroa" },
-    { id: "5A-07", nombre: "Gino",         apellido: "Trombetti" },
-    { id: "5A-08", nombre: "Salvador",     apellido: "Nicolau" },
-    { id: "5A-09", nombre: "Fausto",       apellido: "Cosarinsky" },
-    { id: "5A-10", nombre: "Mateo",        apellido: "Farias" },
-    { id: "5A-11", nombre: "Santiago",     apellido: "Desio" },
-    { id: "5A-12", nombre: "Ceferino",     apellido: "Davico" },
-    { id: "5A-13", nombre: "Adriano",      apellido: "Cipollone" },
-    { id: "5A-14", nombre: "Santino",      apellido: "Cappone" },
-    { id: "5A-15", nombre: "Renzo",        apellido: "Boiero" },
-    { id: "5A-16", nombre: "Theo",         apellido: "Nicolau" },
-    { id: "5A-17", nombre: "Mateo",        apellido: "Said" },
-    { id: "5A-18", nombre: "Lautaro",      apellido: "Gimenez" },
-    { id: "5A-19", nombre: "Felipe",       apellido: "Cipollone" },
-    { id: "5A-20", nombre: "Agustin",      apellido: "Pagani" },
-    { id: "5A-21", nombre: "Ignacio",      apellido: "Cassina" },
-    { id: "5A-22", nombre: "Felipe",       apellido: "Gamarino" },
-    { id: "5A-23", nombre: "Felipe",       apellido: "Lupori" },
-    { id: "5A-24", nombre: "Benjamin",     apellido: "Arce" },
-    { id: "5A-25", nombre: "Juan Segundo", apellido: "Rodriguez" },
-    { id: "5A-26", nombre: "Ignacio",      apellido: "Jaime" },
+    { id: "5A-01", nombre: "Samir",       apellido: "Seguetti" },
+    { id: "5A-02", nombre: "Lautaro",     apellido: "Depetris" },
+    { id: "5A-03", nombre: "Maximo",      apellido: "Porcel" },
+    { id: "5A-04", nombre: "Bautista",    apellido: "Fornaso" },
+    { id: "5A-05", nombre: "Felipe",      apellido: "Farias" },
+    { id: "5A-06", nombre: "Juan",        apellido: "Figueroa" },
+    { id: "5A-07", nombre: "Gino",        apellido: "Trombetti" },
+    { id: "5A-08", nombre: "Salvador",    apellido: "Nicolau" },
+    { id: "5A-09", nombre: "Fausto",      apellido: "Cosarinsky" },
+    { id: "5A-10", nombre: "Mateo",       apellido: "Farias" },
+    { id: "5A-11", nombre: "Santiago",    apellido: "Desio" },
+    { id: "5A-12", nombre: "Ceferino",    apellido: "Davico" },
+    { id: "5A-13", nombre: "Adriano",     apellido: "Cipollone" },
+    { id: "5A-14", nombre: "Santino",     apellido: "Cappone" },
+    { id: "5A-15", nombre: "Renzo",       apellido: "Boiero" },
+    { id: "5A-16", nombre: "Theo",        apellido: "Nicolau" },
+    { id: "5A-17", nombre: "Mateo",       apellido: "Said" },
+    { id: "5A-18", nombre: "Lautaro",     apellido: "Gimenez" },
+    { id: "5A-19", nombre: "Felipe",      apellido: "Cipollone" },
+    { id: "5A-20", nombre: "Agustin",     apellido: "Pagani" },
+    { id: "5A-21", nombre: "Ignacio",     apellido: "Cassina" },
+    { id: "5A-22", nombre: "Felipe",      apellido: "Gamarino" },
+    { id: "5A-23", nombre: "Felipe",      apellido: "Lupori" },
+    { id: "5A-24", nombre: "Benjamin",    apellido: "Arce" },
+    { id: "5A-25", nombre: "Juan Segundo",apellido: "Rodriguez" },
+    { id: "5A-26", nombre: "Ignacio",     apellido: "Jaime" }
   ],
   "2012": [
-    { id: "12-01", nombre: "Mateo",      apellido: "Confaloñeri" },
+    { id: "12-01", nombre: "Mateo",      apellido: "Confaloneri" },
     { id: "12-02", nombre: "Nahuel",     apellido: "Bambozzi" },
     { id: "12-03", nombre: "Lazaro",     apellido: "Elia" },
     { id: "12-04", nombre: "Octavio",    apellido: "Place" },
@@ -470,22 +426,22 @@ const JUGADORES = {
     { id: "12-20", nombre: "Benjamin",   apellido: "Gonzalez" },
     { id: "12-21", nombre: "Bruno",      apellido: "Bonet" },
     { id: "12-22", nombre: "Tiziano",    apellido: "Petersons" },
-    { id: "12-23", nombre: "Thiago",     apellido: "Sella" },
+    { id: "12-23", nombre: "Thiago",     apellido: "Sella" }
   ],
   "2013": [
     { id: "13-01", nombre: "Bernardo",  apellido: "Nant" },
-    { id: "13-02", nombre: "Francesco", apellido: "Digiusto"},
+    { id: "13-02", nombre: "Francesco", apellido: "Digiusto" },
     { id: "13-03", nombre: "Jano",      apellido: "Nicolau" },
-    { id: "13-04", nombre: "Joaquín",   apellido: "Gamarino" },
+    { id: "13-04", nombre: "Joaquin",   apellido: "Gamarino" },
     { id: "13-05", nombre: "Pedro",     apellido: "Siciliani" },
     { id: "13-06", nombre: "Francisco", apellido: "Samut" },
     { id: "13-07", nombre: "Gino",      apellido: "Bischof" },
     { id: "13-08", nombre: "Bruno",     apellido: "Di Virgilio" },
-    { id: "13-09", nombre: "Martín",    apellido: "Reisigier" },
+    { id: "13-09", nombre: "Martin",    apellido: "Reisigier" },
     { id: "13-10", nombre: "Felipe",    apellido: "Bianchi" },
     { id: "13-11", nombre: "Malik",     apellido: "Zakka" },
-    { id: "13-12", nombre: "Ezequiel",  apellido: "----- " },
-    { id: "13-13", nombre: "Matías",    apellido: "Bassi" },
+    { id: "13-12", nombre: "Ezequiel",  apellido: "-----" },
+    { id: "13-13", nombre: "Matias",    apellido: "Bassi" }
   ],
   "2014": [
     { id: "14-01", nombre: "Teo",          apellido: "Alassia" },
@@ -494,7 +450,7 @@ const JUGADORES = {
     { id: "14-04", nombre: "Dante",        apellido: "Carne" },
     { id: "14-05", nombre: "Felipe",       apellido: "Poccioni" },
     { id: "14-06", nombre: "Salvador",     apellido: "Morassi" },
-    { id: "14-07", nombre: "Fransico",     apellido: "Fornaso" },
+    { id: "14-07", nombre: "Francisco",    apellido: "Fornaso" },
     { id: "14-08", nombre: "Renzo",        apellido: "Falco" },
     { id: "14-09", nombre: "Vitto",        apellido: "Santillan" },
     { id: "14-10", nombre: "Ignacio",      apellido: "Di Grado" },
@@ -508,92 +464,92 @@ const JUGADORES = {
     { id: "14-18", nombre: "Gabriel",      apellido: "Priotto" },
     { id: "14-19", nombre: "Pedro",        apellido: "Marani" },
     { id: "14-20", nombre: "Juan Ignacio", apellido: "Ruiz" },
-    { id: "14-21", nombre: "Tobias",       apellido: "Ontivero" },
+    { id: "14-21", nombre: "Tobias",       apellido: "Ontivero" }
   ],
   "2015": [
-    { id: "15-01", nombre: "Agustino",     apellido: "Marcon" },
-    { id: "15-02", nombre: "Benjamin",     apellido: "Bogado" },
-    { id: "15-03", nombre: "Bruno",        apellido: "Cassina" },
-    { id: "15-04", nombre: "Ciro",         apellido: "Espindola" },
-    { id: "15-05", nombre: "Enzo",         apellido: "Girotti" },
-    { id: "15-06", nombre: "Ezequiel",     apellido: "Reisiguir" },
-    { id: "15-07", nombre: "Juan",         apellido: "Ripacolli" },
-    { id: "15-08", nombre: "Joaquin",      apellido: "Farias" },
-    { id: "15-09", nombre: "Joaquin",      apellido: "Malpassi" },
-    { id: "15-10", nombre: "Lorenzo",      apellido: "Famoso" },
-    { id: "15-11", nombre: "Mateo",        apellido: "Cassina" },
-    { id: "15-12", nombre: "Mateo",        apellido: "Guerra" },
-    { id: "15-13", nombre: "Maximo",       apellido: "Cetti" },
-    { id: "15-14", nombre: "Maximiliano",  apellido: "Del Sol" },
-    { id: "15-15", nombre: "Milko",        apellido: "Mariatti" },
-    { id: "15-16", nombre: "Salvador",     apellido: "Perello" },
-    { id: "15-17", nombre: "Santiago",     apellido: "Mercado" },
-    { id: "15-18", nombre: "Pedro",        apellido: "Gamarino" },
-    { id: "15-19", nombre: "Teo",          apellido: "Alesso" },
-    { id: "15-20", nombre: "Vittorio",     apellido: "Tabasso" }
+    { id: "15-01", nombre: "Agustino",    apellido: "Marcon" },
+    { id: "15-02", nombre: "Benjamin",    apellido: "Bogado" },
+    { id: "15-03", nombre: "Bruno",       apellido: "Cassina" },
+    { id: "15-04", nombre: "Ciro",        apellido: "Espindola" },
+    { id: "15-05", nombre: "Enzo",        apellido: "Girotti" },
+    { id: "15-06", nombre: "Ezequiel",    apellido: "Reisiguir" },
+    { id: "15-07", nombre: "Juan",        apellido: "Ripacolli" },
+    { id: "15-08", nombre: "Joaquin",     apellido: "Farias" },
+    { id: "15-09", nombre: "Joaquin",     apellido: "Malpassi" },
+    { id: "15-10", nombre: "Lorenzo",     apellido: "Famoso" },
+    { id: "15-11", nombre: "Mateo",       apellido: "Cassina" },
+    { id: "15-12", nombre: "Mateo",       apellido: "Guerra" },
+    { id: "15-13", nombre: "Maximo",      apellido: "Cetti" },
+    { id: "15-14", nombre: "Maximiliano", apellido: "Del Sol" },
+    { id: "15-15", nombre: "Milko",       apellido: "Mariatti" },
+    { id: "15-16", nombre: "Salvador",    apellido: "Perello" },
+    { id: "15-17", nombre: "Santiago",    apellido: "Mercado" },
+    { id: "15-18", nombre: "Pedro",       apellido: "Gamarino" },
+    { id: "15-19", nombre: "Teo",         apellido: "Alesso" },
+    { id: "15-20", nombre: "Vittorio",    apellido: "Tabasso" }
   ],
   "2016": [
-    { id: "16-01", nombre: "Gian",       apellido: "Trombetti" },
-    { id: "16-02", nombre: "Horacio",    apellido: "Infante" },
-    { id: "16-03", nombre: "Enzo",       apellido: "Pagani" },
-    { id: "16-04", nombre: "Joaquín",    apellido: "Raissiguier" },
-    { id: "16-05", nombre: "Juan",       apellido: "Nicolau" },
-    { id: "16-06", nombre: "Agustín",    apellido: "Martini" },
-    { id: "16-07", nombre: "Lautaro",    apellido: "Bunziak" },
-    { id: "16-08", nombre: "Augusto",    apellido: "Maroni" },
-    { id: "16-09", nombre: "Camilo",     apellido: "Della Puppa" },
-    { id: "16-10", nombre: "Nachi",      apellido: "Scarafia" },
-    { id: "16-11", nombre: "Octavio",    apellido: "Ortiz" },
-    { id: "16-12", nombre: "Felipe",     apellido: "Perelló" },
-    { id: "16-13", nombre: "Valentino",  apellido: "Simioni" },
-    { id: "16-14", nombre: "Benicio",    apellido: "Bianchi" },
-    { id: "16-15", nombre: "Lorenzo",    apellido: "Savino" },
-    { id: "16-16", nombre: "Alvaro",     apellido: "Spizzo" },
-    { id: "16-17", nombre: "Benjamin",   apellido: "Escariz" },
-    { id: "16-18", nombre: "Felipe",     apellido: "Soldini" },
-    { id: "16-19", nombre: "Augusto",    apellido: "Imarisio" }
+    { id: "16-01", nombre: "Gian",      apellido: "Trombetti" },
+    { id: "16-02", nombre: "Horacio",   apellido: "Infante" },
+    { id: "16-03", nombre: "Enzo",      apellido: "Pagani" },
+    { id: "16-04", nombre: "Joaquin",   apellido: "Raissiguier" },
+    { id: "16-05", nombre: "Juan",      apellido: "Nicolau" },
+    { id: "16-06", nombre: "Agustin",   apellido: "Martini" },
+    { id: "16-07", nombre: "Lautaro",   apellido: "Bunziak" },
+    { id: "16-08", nombre: "Augusto",   apellido: "Maroni" },
+    { id: "16-09", nombre: "Camilo",    apellido: "Della Puppa" },
+    { id: "16-10", nombre: "Nachi",     apellido: "Scarafia" },
+    { id: "16-11", nombre: "Octavio",   apellido: "Ortiz" },
+    { id: "16-12", nombre: "Felipe",    apellido: "Perello" },
+    { id: "16-13", nombre: "Valentino", apellido: "Simioni" },
+    { id: "16-14", nombre: "Benicio",   apellido: "Bianchi" },
+    { id: "16-15", nombre: "Lorenzo",   apellido: "Savino" },
+    { id: "16-16", nombre: "Alvaro",    apellido: "Spizzo" },
+    { id: "16-17", nombre: "Benjamin",  apellido: "Escariz" },
+    { id: "16-18", nombre: "Felipe",    apellido: "Soldini" },
+    { id: "16-19", nombre: "Augusto",   apellido: "Imarisio" }
   ],
   "2017": [
     { id: "17-01", nombre: "Valentino",   apellido: "Taborda" },
     { id: "17-02", nombre: "Gaspar",      apellido: "Cassina" },
     { id: "17-03", nombre: "Agus",        apellido: "Mosca" },
-    { id: "17-04", nombre: "Ciro",        apellido: "Juárez Gabellini" },
+    { id: "17-04", nombre: "Ciro",        apellido: "Juarez Gabellini" },
     { id: "17-05", nombre: "Bruno",       apellido: "Trecco Bacaloni" },
     { id: "17-06", nombre: "Ignacio",     apellido: "Giudicatti" },
     { id: "17-07", nombre: "Giovanni",    apellido: "Costantino" },
     { id: "17-08", nombre: "Juan Cruz",   apellido: "Balmaceda" },
     { id: "17-09", nombre: "Milo",        apellido: "Bartulovic" },
-    { id: "17-10", nombre: "Juan Martín", apellido: "---" },
+    { id: "17-10", nombre: "Juan Martin", apellido: "---" },
     { id: "17-11", nombre: "Percy",       apellido: "Nicolas" },
-    { id: "17-12", nombre: "Lorenzo",     apellido: "Menna" },
+    { id: "17-12", nombre: "Lorenzo",     apellido: "Menna" }
   ],
   "2018": [
-    { id: "18-01", nombre: "Lorenzo",        apellido: "Gusella" },
-    { id: "18-02", nombre: "Logan",          apellido: "Benitez" },
-    { id: "18-03", nombre: "Juan Ignacio",   apellido: "Luna Pla" },
-    { id: "18-04", nombre: "Felipe",         apellido: "Perazzo Gratarolli" },
-    { id: "18-05", nombre: "Tobias",         apellido: "Rocha" },
-    { id: "18-06", nombre: "Eneas",          apellido: "Ustares" },
-    { id: "18-07", nombre: "Bautista",       apellido: "Bassa" },
-    { id: "18-08", nombre: "Juan Segundo",   apellido: "Bolatti" },
-    { id: "18-09", nombre: "Stefano",        apellido: "Martin Franco" },
-    { id: "18-10", nombre: "Dante",          apellido: "Bolatti" },
-    { id: "18-11", nombre: "Milo",           apellido: "Valdettaro" },
-    { id: "18-12", nombre: "Agustin",        apellido: "Torres" },
-    { id: "18-13", nombre: "Bruno",          apellido: "Fregosi" },
-    { id: "18-14", nombre: "Fran",           apellido: "Merida" },
-    { id: "18-15", nombre: "Bruno",          apellido: "Arrieta" },
-    { id: "18-16", nombre: "Juan Bautista",  apellido: "Gotta" },
-    { id: "18-17", nombre: "Mateo",          apellido: "Santi" }
+    { id: "18-01", nombre: "Lorenzo",      apellido: "Gusella" },
+    { id: "18-02", nombre: "Logan",        apellido: "Benitez" },
+    { id: "18-03", nombre: "Juan Ignacio", apellido: "Luna Pla" },
+    { id: "18-04", nombre: "Felipe",       apellido: "Perazzo Gratarolli" },
+    { id: "18-05", nombre: "Tobias",       apellido: "Rocha" },
+    { id: "18-06", nombre: "Eneas",        apellido: "Ustares" },
+    { id: "18-07", nombre: "Bautista",     apellido: "Bassa" },
+    { id: "18-08", nombre: "Juan Segundo", apellido: "Bolatti" },
+    { id: "18-09", nombre: "Stefano",      apellido: "Martin Franco" },
+    { id: "18-10", nombre: "Dante",        apellido: "Bolatti" },
+    { id: "18-11", nombre: "Milo",         apellido: "Valdettaro" },
+    { id: "18-12", nombre: "Agustin",      apellido: "Torres" },
+    { id: "18-13", nombre: "Bruno",        apellido: "Fregosi" },
+    { id: "18-14", nombre: "Fran",         apellido: "Merida" },
+    { id: "18-15", nombre: "Bruno",        apellido: "Arrieta" },
+    { id: "18-16", nombre: "Juan Bautista",apellido: "Gotta" },
+    { id: "18-17", nombre: "Mateo",        apellido: "Santi" }
   ]
 };
 
-// ── Contadores
-let golCounter = 0, ocasionCounter = 0, atajadaCounter = 0;
-let faltaComCounter = 0, faltaRecCounter = 0;
-let localiaSeleccionada = null;
+// Contadores
+let golCounter=0, ocasionCounter=0, atajadaCounter=0;
+let faltaComCounter=0, faltaRecCounter=0;
+let titularCounter=0, suplenteCounter=0, cambioCounter=0;
+let localiaSeleccionada=null;
 
-// ── Tipos comunes
 const TIPOS_EVENTO = `
   <option value="">Tipo</option>
   <option value="remate">Remate</option>
@@ -610,16 +566,35 @@ const SECTORES = `
   <option value="medio">Medio</option>
   <option value="bajo">Bajo</option>`;
 
+const POSICIONES = `
+  <option value="">Posicion</option>
+  <option value="arquero">Arquero</option>
+  <option value="defensor_central">Defensor central</option>
+  <option value="lateral">Lateral</option>
+  <option value="volante_central">Volante central</option>
+  <option value="volante_extremo">Volante / Extremo</option>
+  <option value="volante_creativo">Volante creativo</option>
+  <option value="delantero_punta">Delantero Punta</option>
+  <option value="segundo_delantero">Segundo Delantero</option>`;
+
 function getJugadoresActuales() {
   return JUGADORES[document.getElementById('categoria').value] || [];
 }
 
-function buildPlayerOptions(placeholder = 'Jugador') {
+function buildPlayerOptions(placeholder='Jugador') {
   let opts = `<option value="">${placeholder}</option>`;
   getJugadoresActuales().forEach(j => {
-    opts += `<option value="${j.id}">${j.apellido}, ${j.nombre}</option>`;
+    opts += `<option value="${j.id}|${j.apellido} ${j.nombre}">${j.apellido}, ${j.nombre}</option>`;
   });
   return opts;
+}
+
+function playerVal(elId) {
+  const raw = document.getElementById(elId)?.value || '';
+  if (!raw) return { id: null, nombre: null };
+  const sep = raw.indexOf('|');
+  if (sep === -1) return { id: raw, nombre: null };
+  return { id: raw.slice(0, sep), nombre: raw.slice(sep+1) };
 }
 
 function onCategoriaChange() {
@@ -633,15 +608,8 @@ function onCategoriaChange() {
 
 function setLocalia(val) {
   localiaSeleccionada = val;
-  document.getElementById('opt-local').className     = 'radio-opt' + (val==='local'     ? ' selected-local' : '');
-  document.getElementById('opt-visitante').className = 'radio-opt' + (val==='visitante' ? ' selected-visit' : '');
-}
-
-function toggleCheck(id) {
-  const cb = document.getElementById(id);
-  cb.checked = !cb.checked;
-  const labelId = id === 'valla_1t' ? 'check-valla1' : 'check-valla2';
-  document.getElementById(labelId).classList.toggle('checked', cb.checked);
+  document.getElementById('opt-local').className     = 'radio-opt'+(val==='local'?' selected-local':'');
+  document.getElementById('opt-visitante').className = 'radio-opt'+(val==='visitante'?' selected-visit':'');
 }
 
 function removeItem(itemId) {
@@ -649,20 +617,18 @@ function removeItem(itemId) {
   if (el) { el.style.opacity='0'; el.style.transform='scale(0.95)'; el.style.transition='0.15s'; setTimeout(()=>el.remove(),150); }
 }
 
-// ── GOLES
 function addGol() {
   const id = ++golCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `gol-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`gol-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">⚽ Gol #${id}</span>
-      <button class="btn-remove" onclick="removeItem('gol-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Gol #${id}</span>
+      <button class="btn-remove" onclick="removeItem('gol-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Minuto</label>
-        <input type="number" min="1" max="120" placeholder="ej: 34" id="gol-min-${id}"></div>
-      <div class="field"><label>Tipo de Gol <span class="req">*</span></label>
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 34" id="gol-min-${id}"></div>
+      <div class="field"><label>Tipo <span class="req">*</span></label>
         <select id="gol-tipo-${id}">
           <option value="">Tipo...</option>
           <option value="jugada">Jugada colectiva</option>
@@ -674,81 +640,69 @@ function addGol() {
           <option value="autogol">Autogol</option>
         </select></div>
       <div class="field"><label>Anotador <span class="req">*</span></label>
-        <select id="gol-anot-${id}" class="player-select" data-placeholder="Jugador">
-          ${buildPlayerOptions('Seleccioná jugador...')}</select></div>
+        <select id="gol-anot-${id}" class="player-select">${buildPlayerOptions('Selecciona jugador...')}</select></div>
       <div class="field"><label>Asistencia</label>
-        <select id="gol-asist-${id}" class="player-select" data-placeholder="Sin asistencia">
-          ${buildPlayerOptions('— Sin asistencia —')}</select></div>
+        <select id="gol-asist-${id}" class="player-select">${buildPlayerOptions('Sin asistencia')}</select></div>
     </div>`;
   document.getElementById('goles-list').appendChild(el);
 }
 
-// ── OCASIONES DE GOL
 function addOcasion() {
   const id = ++ocasionCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `oc-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`oc-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🎯 Ocasión #${id}</span>
-      <button class="btn-remove" onclick="removeItem('oc-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Ocasion #${id}</span>
+      <button class="btn-remove" onclick="removeItem('oc-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Minuto</label>
-        <input type="number" min="1" max="120" placeholder="ej: 22" id="oc-min-${id}"></div>
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 22" id="oc-min-${id}"></div>
+      <div class="field"><label>Tipo</label><select id="oc-tipo-${id}">${TIPOS_EVENTO}</select></div>
       <div class="field"><label>Jugador</label>
         <select id="oc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Tipo</label>
-        <select id="oc-tipo-${id}">${TIPOS_EVENTO}</select></div>
       <div class="field"><label>Pase clave de</label>
-        <select id="oc-pase-${id}" class="player-select">${buildPlayerOptions('— Sin pase clave —')}</select></div>
+        <select id="oc-pase-${id}" class="player-select">${buildPlayerOptions('Sin pase clave')}</select></div>
     </div>`;
   document.getElementById('ocasiones-list').appendChild(el);
 }
 
-// ── ATAJADAS CLAVE
 function addAtajada() {
   const id = ++atajadaCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `at-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`at-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🧤 Atajada #${id}</span>
-      <button class="btn-remove" onclick="removeItem('at-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Atajada #${id}</span>
+      <button class="btn-remove" onclick="removeItem('at-${id}')">X</button>
     </div>
     <div class="form-grid cols-3">
-      <div class="field"><label>Minuto <span class="opt"></span></label>
-        <input type="number" min="1" max="120" placeholder="ej: 55" id="at-min-${id}"></div>
-      <div class="field"><label>Jugador (arquero) <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 55" id="at-min-${id}"></div>
+      <div class="field"><label>Jugador (arquero)</label>
         <select id="at-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Tipo <span class="opt"></span></label>
-        <select id="at-tipo-${id}">${TIPOS_EVENTO}</select></div>
+      <div class="field"><label>Tipo</label><select id="at-tipo-${id}">${TIPOS_EVENTO}</select></div>
     </div>`;
   document.getElementById('atajadas-list').appendChild(el);
 }
 
-// ── FALTAS COMETIDAS
 function addFaltaCometida() {
   const id = ++faltaComCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `fc-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`fc-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🟨 Falta Cometida #${id}</span>
-      <button class="btn-remove" onclick="removeItem('fc-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Falta Cometida #${id}</span>
+      <button class="btn-remove" onclick="removeItem('fc-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="fc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Minuto <span class="opt"></span></label>
-        <input type="number" min="1" max="120" placeholder="ej: 38" id="fc-min-${id}"></div>
-      <div class="field"><label>Sector <span class="opt"></span></label>
-        <select id="fc-sector-${id}">${SECTORES}</select></div>
-      <div class="field"><label>Tarjeta <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 38" id="fc-min-${id}"></div>
+      <div class="field"><label>Sector</label><select id="fc-sector-${id}">${SECTORES}</select></div>
+      <div class="field"><label>Tarjeta</label>
         <div class="card-type-toggle">
-          <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">🟨 Amarilla</button>
-          <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">🟥 Roja</button>
-          <button class="card-type-btn"          id="fc-ninguna-${id}"  onclick="setFaltaCard(${id},'')">— Ninguna</button>
+          <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">Amarilla</button>
+          <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">Roja</button>
         </div>
         <input type="hidden" id="fc-tarjeta-${id}" value=""></div>
     </div>`;
@@ -757,205 +711,173 @@ function addFaltaCometida() {
 
 function setFaltaCard(id, tipo) {
   document.getElementById(`fc-tarjeta-${id}`).value = tipo;
-  ['amarilla','roja','ninguna'].forEach(t => {
+  ['amarilla','roja'].forEach(t => {
     const btn = document.getElementById(`fc-${t}-${id}`);
-    if (!btn) return;
-    btn.classList.remove('active');
+    if (btn) btn.classList.remove('active');
   });
-  if (tipo === 'amarilla') document.getElementById(`fc-amarilla-${id}`).classList.add('active');
-  if (tipo === 'roja')     document.getElementById(`fc-roja-${id}`).classList.add('active');
+  const active = document.getElementById(`fc-${tipo}-${id}`);
+  if (active) active.classList.add('active');
 }
 
-// ── FALTAS RECIBIDAS
 function addFaltaRecibida() {
   const id = ++faltaRecCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `fr-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`fr-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🟥 Falta Recibida #${id}</span>
-      <button class="btn-remove" onclick="removeItem('fr-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Falta Recibida #${id}</span>
+      <button class="btn-remove" onclick="removeItem('fr-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Minuto <span class="opt"></span></label>
-        <input type="number" min="1" max="120" placeholder="ej: 61" id="fr-min-${id}"></div>
-      <div class="field"><label>Sector <span class="opt"></span></label>
-        <select id="fr-sector-${id}">${SECTORES}</select></div>
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 61" id="fr-min-${id}"></div>
+      <div class="field"><label>Sector</label><select id="fr-sector-${id}">${SECTORES}</select></div>
     </div>`;
   document.getElementById('faltas-rec-list').appendChild(el);
 }
 
-// ── Contadores plantel
-let titularCounter = 0, suplenteCounter = 0, cambioCounter = 0;
-
-// ── TITULARES
 function addTitular() {
   const id = ++titularCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `tit-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`tit-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">👤 Titular #${id}</span>
-      <button class="btn-remove" onclick="removeItem('tit-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Titular #${id}</span>
+      <button class="btn-remove" onclick="removeItem('tit-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="tit-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Posición <span class="opt"></span></label>
-        <select id="tit-pos-${id}">
-          <option value="">Posición</option>
-          <option value="arquero">Arquero</option>
-          <option value="defensor_central">Defensor central</option>
-          <option value="lateral">Lateral</option>
-          <option value="volante_central">Volante central</option>
-          <option value="volante_extremo">Volante / Extremo</option>
-          <option value="volante creativo">Volante creativo</option>
-          <option value="delantero_punta">Delantero Punta</option>
-          <option value="segundo_delantero">Segundo Delantero</option>
-        </select></div>
+      <div class="field"><label>Posicion</label>
+        <select id="tit-pos-${id}">${POSICIONES}</select></div>
     </div>`;
   document.getElementById('titulares-list').appendChild(el);
 }
 
-// ── SUPLENTES
 function addSuplente() {
   const id = ++suplenteCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `sup-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`sup-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🔄 Suplente #${id}</span>
-      <button class="btn-remove" onclick="removeItem('sup-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Suplente #${id}</span>
+      <button class="btn-remove" onclick="removeItem('sup-${id}')">X</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="sup-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Posición <span class="opt"></span></label>
-        <select id="sup-pos-${id}">
-          <option value="">Posición</option>
-          <option value="arquero">Arquero</option>
-          <option value="defensor_central">Defensor central</option>
-          <option value="lateral">Lateral</option>
-          <option value="volante_central">Volante central</option>
-          <option value="volante_extremo">Volante / Extremo</option>
-          <option value="volante creativo">Volante creativo</option>
-          <option value="delantero_punta">Delantero Punta</option>
-          <option value="segundo_delantero">Segundo Delantero</option>
-        </select></div>
+      <div class="field"><label>Posicion</label>
+        <select id="sup-pos-${id}">${POSICIONES}</select></div>
     </div>`;
   document.getElementById('suplentes-list').appendChild(el);
 }
 
-// ── CAMBIOS
 function addCambio() {
   const id = ++cambioCounter;
   const el = document.createElement('div');
-  el.className = 'event-item'; el.id = `cam-${id}`;
-  el.innerHTML = `
+  el.className='event-item'; el.id=`cam-${id}`;
+  el.innerHTML=`
     <div class="event-item-header">
-      <span class="event-num">🔄 Cambio #${id}</span>
-      <button class="btn-remove" onclick="removeItem('cam-${id}')" title="Eliminar">✕</button>
+      <span class="event-num">Cambio #${id}</span>
+      <button class="btn-remove" onclick="removeItem('cam-${id}')">X</button>
     </div>
     <div class="form-grid cols-3">
-      <div class="field"><label>Sale <span class="opt"></span></label>
+      <div class="field"><label>Sale</label>
         <select id="cam-sale-${id}" class="player-select">${buildPlayerOptions('Jugador que sale...')}</select></div>
-      <div class="field"><label>Entra <span class="opt"></span></label>
+      <div class="field"><label>Entra</label>
         <select id="cam-entra-${id}" class="player-select">${buildPlayerOptions('Jugador que entra...')}</select></div>
-      <div class="field"><label>Minuto <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 35" id="cam-min-${id}"></div>
     </div>`;
   document.getElementById('cambios-list').appendChild(el);
 }
 
-// ── VALIDACIÓN
 function validate() {
   const req = [
-    { id: 'categoria',    msg: 'Seleccioná una categoría.' },
-    { id: 'fecha',        msg: 'Ingresá la fecha del partido.' },
-    { id: 'rival',        msg: 'Seleccioná el rival.' },
+    { id: 'categoria', msg: 'Selecciona una categoria.' },
+    { id: 'fecha',     msg: 'Ingresa la fecha del partido.' },
+    { id: 'rival',     msg: 'Selecciona el rival.' },
   ];
   for (const f of req) {
-    if (!document.getElementById(f.id).value) { showToast(f.msg, 'error'); return false; }
+    if (!document.getElementById(f.id).value) { showToast(f.msg,'error'); return false; }
   }
-  if (!localiaSeleccionada) { showToast('Seleccioná la localía.', 'error'); return false; }
-
-  // Goles: tipo y anotador obligatorios
-  for (let i = 1; i <= golCounter; i++) {
+  if (!localiaSeleccionada) { showToast('Selecciona la localia.','error'); return false; }
+  for (let i=1; i<=golCounter; i++) {
     if (!document.getElementById(`gol-${i}`)) continue;
-    if (!document.getElementById(`gol-tipo-${i}`).value)  { showToast(`Gol #${i}: falta el tipo.`, 'error'); return false; }
-    if (!document.getElementById(`gol-anot-${i}`).value)  { showToast(`Gol #${i}: falta el anotador.`, 'error'); return false; }
+    if (!document.getElementById(`gol-tipo-${i}`).value) { showToast(`Gol #${i}: falta el tipo.`,'error'); return false; }
+    if (!document.getElementById(`gol-anot-${i}`).value) { showToast(`Gol #${i}: falta el anotador.`,'error'); return false; }
   }
-
-  // Email obligatorio
   const email = document.getElementById('email-profesor').value.trim();
-  if (!email) { showToast('Ingresá tu email antes de enviar.', 'error'); return false; }
-  if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) { showToast('El email no tiene un formato válido.', 'error'); return false; }
-
+  if (!email) { showToast('Ingresa tu email antes de enviar.','error'); return false; }
+  if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) { showToast('El email no tiene formato valido.','error'); return false; }
   return true;
 }
 
-// ── RECOLECTAR Y ENVIAR
 function submitForm() {
   if (!validate()) return;
 
   const cat     = document.getElementById('categoria').value;
   const fecha   = document.getElementById('fecha').value;
-  const valla1t = document.getElementById('valla_1t').checked;
-  const valla2t = document.getElementById('valla_2t').checked;
   const gFavor  = parseInt(document.getElementById('goles_favor').value)  || 0;
   const gContra = parseInt(document.getElementById('goles_contra').value) || 0;
   const email   = document.getElementById('email-profesor').value.trim();
 
-  // Goles
   const goles = [];
-  for (let i = 1; i <= golCounter; i++) {
+  for (let i=1; i<=golCounter; i++) {
     if (!document.getElementById(`gol-${i}`)) continue;
+    const anot  = playerVal(`gol-anot-${i}`);
+    const asist = playerVal(`gol-asist-${i}`);
     goles.push({
-      minuto:       document.getElementById(`gol-min-${i}`).value   || null,
-      tipo:         document.getElementById(`gol-tipo-${i}`).value  || null,
-      anotador_id:  document.getElementById(`gol-anot-${i}`).value  || null,
-      asistente_id: document.getElementById(`gol-asist-${i}`).value || null,
+      minuto:           document.getElementById(`gol-min-${i}`).value  || null,
+      tipo:             document.getElementById(`gol-tipo-${i}`).value || null,
+      anotador_id:      anot.id,
+      anotador_nombre:  anot.nombre,
+      asistente_id:     asist.id,
+      asistente_nombre: asist.nombre,
     });
   }
 
-  // Ocasiones de gol
   const ocasiones = [];
-  for (let i = 1; i <= ocasionCounter; i++) {
+  for (let i=1; i<=ocasionCounter; i++) {
     if (!document.getElementById(`oc-${i}`)) continue;
+    const jug  = playerVal(`oc-jug-${i}`);
+    const pase = playerVal(`oc-pase-${i}`);
     ocasiones.push({
-      minuto:      document.getElementById(`oc-min-${i}`).value  || null,
-      jugador_id:  document.getElementById(`oc-jug-${i}`).value  || null,
-      tipo:        document.getElementById(`oc-tipo-${i}`).value  || null,
-      pase_clave:  document.getElementById(`oc-pase-${i}`).value || null,
+      minuto:            document.getElementById(`oc-min-${i}`).value  || null,
+      tipo:              document.getElementById(`oc-tipo-${i}`).value || null,
+      jugador_id:        jug.id,
+      jugador_nombre:    jug.nombre,
+      pase_clave_id:     pase.id,
+      pase_clave_nombre: pase.nombre,
     });
   }
 
-  // Atajadas clave
   const atajadas = [];
-  for (let i = 1; i <= atajadaCounter; i++) {
+  for (let i=1; i<=atajadaCounter; i++) {
     if (!document.getElementById(`at-${i}`)) continue;
+    const jug = playerVal(`at-jug-${i}`);
     atajadas.push({
-      minuto:     document.getElementById(`at-min-${i}`).value  || null,
-      jugador_id: document.getElementById(`at-jug-${i}`).value  || null,
-      tipo:       document.getElementById(`at-tipo-${i}`).value || null,
+      minuto:         document.getElementById(`at-min-${i}`).value  || null,
+      tipo:           document.getElementById(`at-tipo-${i}`).value || null,
+      jugador_id:     jug.id,
+      jugador_nombre: jug.nombre,
     });
   }
 
-  // Faltas cometidas
   const faltas_cometidas = [];
-  for (let i = 1; i <= faltaComCounter; i++) {
+  for (let i=1; i<=faltaComCounter; i++) {
     if (!document.getElementById(`fc-${i}`)) continue;
+    const jug = playerVal(`fc-jug-${i}`);
     faltas_cometidas.push({
-      jugador_id: document.getElementById(`fc-jug-${id}`).value    || null,
-      minuto:     document.getElementById(`fc-min-${id}`).value    || null,
-      sector:     document.getElementById(`fc-sector-${id}`).value || null,
-      tarjeta:    document.getElementById(`fc-tarjeta-${id}`).value || null,
+      jugador_id:     jug.id,
+      jugador_nombre: jug.nombre,
+      minuto:         document.getElementById(`fc-min-${i}`).value    || null,
+      sector:         document.getElementById(`fc-sector-${i}`).value || null,
+      tarjeta:        document.getElementById(`fc-tarjeta-${i}`).value || null,
     });
   }
 
-  // Faltas recibidas
   const faltas_recibidas = [];
-  for (let i = 1; i <= faltaRecCounter; i++) {
+  for (let i=1; i<=faltaRecCounter; i++) {
     if (!document.getElementById(`fr-${i}`)) continue;
     faltas_recibidas.push({
       minuto: document.getElementById(`fr-min-${i}`).value    || null,
@@ -963,62 +885,54 @@ function submitForm() {
     });
   }
 
-  // Titulares
   const titulares = [];
-  for (let i = 1; i <= titularCounter; i++) {
+  for (let i=1; i<=titularCounter; i++) {
     if (!document.getElementById(`tit-${i}`)) continue;
-    titulares.push({
-      jugador_id: document.getElementById(`tit-jug-${i}`).value || null,
-      posicion:   document.getElementById(`tit-pos-${i}`).value || null,
-    });
+    const jug = playerVal(`tit-jug-${i}`);
+    titulares.push({ jugador_id: jug.id, jugador_nombre: jug.nombre, posicion: document.getElementById(`tit-pos-${i}`).value || null });
   }
 
-  // Suplentes
   const suplentes = [];
-  for (let i = 1; i <= suplenteCounter; i++) {
+  for (let i=1; i<=suplenteCounter; i++) {
     if (!document.getElementById(`sup-${i}`)) continue;
-    suplentes.push({
-      jugador_id: document.getElementById(`sup-jug-${i}`).value || null,
-      posicion:   document.getElementById(`sup-pos-${i}`).value || null,
-    });
+    const jug = playerVal(`sup-jug-${i}`);
+    suplentes.push({ jugador_id: jug.id, jugador_nombre: jug.nombre, posicion: document.getElementById(`sup-pos-${i}`).value || null });
   }
 
-  // Cambios
   const cambios = [];
-  for (let i = 1; i <= cambioCounter; i++) {
+  for (let i=1; i<=cambioCounter; i++) {
     if (!document.getElementById(`cam-${i}`)) continue;
+    const sale  = playerVal(`cam-sale-${i}`);
+    const entra = playerVal(`cam-entra-${i}`);
     cambios.push({
-      sale_id:    document.getElementById(`cam-sale-${i}`).value  || null,
-      entra_id:   document.getElementById(`cam-entra-${i}`).value || null,
-      minuto:     document.getElementById(`cam-min-${i}`).value   || null,
+      sale_id:     sale.id,  sale_nombre:  sale.nombre,
+      entra_id:    entra.id, entra_nombre: entra.nombre,
+      minuto:      document.getElementById(`cam-min-${i}`).value || null,
     });
   }
 
   const data = {
-    metadata: { version_formulario: "2.0", timestamp_envio: new Date().toISOString() },
+    metadata: { version_formulario: "2.1", timestamp_envio: new Date().toISOString() },
     profesor_email: email,
     partido: {
       id_partido: `${cat}_${fecha}_${Date.now()}`,
-      categoria: cat, fecha, rival: document.getElementById('rival').value,
-      localia: localiaSeleccionada,
-      resultado: { goles_favor: gFavor, goles_contra: gContra }
-    },
-    valla_invicta: {
-      primer_tiempo: valla1t, segundo_tiempo: valla2t,
-      partido: valla1t && valla2t && gContra === 0
+      categoria:  cat,
+      fecha:      fecha,
+      torneo:     document.getElementById('torneo').value || null,
+      rival:      document.getElementById('rival').value,
+      localia:    localiaSeleccionada,
+      resultado:  { goles_favor: gFavor, goles_contra: gContra }
     },
     goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
     plantel: {
       duracion_tiempo: document.getElementById('dur_tiempo').value || null,
-      titulares,
-      suplentes,
-      cambios
+      titulares, suplentes, cambios
     },
     observaciones: document.getElementById('observaciones').value.trim() || null,
   };
 
   const btn = document.querySelector('.btn-submit');
-  btn.textContent = '⏳ Enviando...';
+  btn.textContent = 'Enviando...';
   btn.disabled = true;
 
   fetch(CONFIG.APPS_SCRIPT_URL, {
@@ -1027,11 +941,11 @@ function submitForm() {
     body: JSON.stringify(data)
   })
   .then(() => {
-    showToast('Registro enviado. Revisá tu email para confirmar.', 'ok');
+    showToast('Registro enviado. Revisa tu email para confirmar.','ok');
     resetForm();
   })
   .catch(() => {
-    showToast('Error de red. Intentá de nuevo en unos segundos.', 'error');
+    showToast('Error de red. Intenta de nuevo.','error');
   })
   .finally(() => {
     btn.textContent = 'Enviar Registro';
@@ -1040,36 +954,32 @@ function submitForm() {
 }
 
 function resetForm() {
-  document.getElementById('rival').selectedIndex = 0;
-  document.getElementById('goles_favor').value  = '0';
-  document.getElementById('goles_contra').value = '0';
-  document.getElementById('email-profesor').value = '';
-  document.getElementById('valla_1t').checked = false;
-  document.getElementById('valla_2t').checked = false;
-  document.getElementById('check-valla1').classList.remove('checked');
-  document.getElementById('check-valla2').classList.remove('checked');
-  ['goles-list','ocasiones-list','atajadas-list','faltas-com-list','faltas-rec-list'].forEach(id => {
+  document.getElementById('categoria').selectedIndex   = 0;
+  document.getElementById('rival').selectedIndex       = 0;
+  document.getElementById('torneo').selectedIndex      = 0;
+  document.getElementById('dur_tiempo').selectedIndex  = 0;
+  document.getElementById('goles_favor').value         = '0';
+  document.getElementById('goles_contra').value        = '0';
+  document.getElementById('email-profesor').value      = '';
+  document.getElementById('observaciones').value       = '';
+  document.getElementById('opt-local').className       = 'radio-opt';
+  document.getElementById('opt-visitante').className   = 'radio-opt';
+  localiaSeleccionada = null;
+  ['goles-list','ocasiones-list','atajadas-list','faltas-com-list','faltas-rec-list',
+   'titulares-list','suplentes-list','cambios-list'].forEach(id => {
     document.getElementById(id).innerHTML = '';
   });
-  golCounter = 0; ocasionCounter = 0; atajadaCounter = 0;
-  faltaComCounter = 0; faltaRecCounter = 0;
-  localiaSeleccionada = null;
-  document.getElementById('opt-local').className     = 'radio-opt';
-  document.getElementById('opt-visitante').className = 'radio-opt';
-  document.getElementById('observaciones').value = '';
-  document.getElementById('dur_tiempo').value = '';
-  document.getElementById('titulares-list').innerHTML  = '';
-  document.getElementById('suplentes-list').innerHTML  = '';
-  document.getElementById('cambios-list').innerHTML    = '';
-  titularCounter = 0; suplenteCounter = 0; cambioCounter = 0;
+  golCounter=0; ocasionCounter=0; atajadaCounter=0;
+  faltaComCounter=0; faltaRecCounter=0;
+  titularCounter=0; suplenteCounter=0; cambioCounter=0;
 }
 
-function showToast(msg, tipo = 'ok') {
+function showToast(msg, tipo='ok') {
   const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className = 'toast' + (tipo==='error' ? ' error' : tipo==='info' ? ' info' : '');
+  t.className = 'toast'+(tipo==='error'?' error':tipo==='info'?' info':'');
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
+  setTimeout(()=>t.classList.remove('show'), 4000);
 }
 
 document.getElementById('fecha').valueAsDate = new Date();
