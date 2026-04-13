@@ -403,7 +403,7 @@
 
 <script>
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzA9QL1Werv4JmdUWIJUMCnZJTENlmrsXeGdosRcr_bAbAtu9Oq190cHFA8DBbAE1rk/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbx8fLmKt1FeWlz79uZPQdkbP-PVKAx6NgMfcI8KcsMuc3DJy8XT2ZVvbukGQhGtE8Yh/exec",
 };
 
 const JUGADORES = {
@@ -605,9 +605,17 @@ function getJugadoresActuales() {
 function buildPlayerOptions(placeholder = 'Jugador') {
   let opts = `<option value="">${placeholder}</option>`;
   getJugadoresActuales().forEach(j => {
-    opts += `<option value="${j.id}">${j.apellido}, ${j.nombre}</option>`;
+    // value lleva "ID|Apellido Nombre" para que el Apps Script pueda mostrar el nombre
+    opts += `<option value="${j.id}|${j.apellido} ${j.nombre}">${j.apellido}, ${j.nombre}</option>`;
   });
   return opts;
+}
+
+function playerVal(elId) {
+  const raw = document.getElementById(elId)?.value || '';
+  if (!raw) return { id: null, nombre: null };
+  const [id, nombre] = raw.split('|');
+  return { id: id || null, nombre: nombre || null };
 }
 
 function onCategoriaChange() {
@@ -722,7 +730,7 @@ function addFaltaCometida() {
   el.className = 'event-item'; el.id = `fc-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">🟨 Falta Cometida #${id}</span>
+      <span class="event-num">🪓 Falta Cometida #${id}</span>
       <button class="btn-remove" onclick="removeItem('fc-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
@@ -736,7 +744,6 @@ function addFaltaCometida() {
         <div class="card-type-toggle">
           <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">🟨 Amarilla</button>
           <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">🟥 Roja</button>
-          <button class="card-type-btn"          id="fc-ninguna-${id}"  onclick="setFaltaCard(${id},'')">— Ninguna</button>
         </div>
         <input type="hidden" id="fc-tarjeta-${id}" value=""></div>
     </div>`;
@@ -761,7 +768,7 @@ function addFaltaRecibida() {
   el.className = 'event-item'; el.id = `fr-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">🟥 Falta Recibida #${id}</span>
+      <span class="event-num">❎ Falta Recibida #${id}</span>
       <button class="btn-remove" onclick="removeItem('fr-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
@@ -812,7 +819,7 @@ function addSuplente() {
   el.className = 'event-item'; el.id = `sup-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">🔄 Suplente #${id}</span>
+      <span class="event-num">➡️ Suplente #${id}</span>
       <button class="btn-remove" onclick="removeItem('sup-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
@@ -898,11 +905,15 @@ function submitForm() {
   const goles = [];
   for (let i = 1; i <= golCounter; i++) {
     if (!document.getElementById(`gol-${i}`)) continue;
+    const anot  = playerVal(`gol-anot-${i}`);
+    const asist = playerVal(`gol-asist-${i}`);
     goles.push({
-      minuto:       document.getElementById(`gol-min-${i}`).value   || null,
-      tipo:         document.getElementById(`gol-tipo-${i}`).value  || null,
-      anotador_id:  document.getElementById(`gol-anot-${i}`).value  || null,
-      asistente_id: document.getElementById(`gol-asist-${i}`).value || null,
+      minuto:          document.getElementById(`gol-min-${i}`).value  || null,
+      tipo:            document.getElementById(`gol-tipo-${i}`).value || null,
+      anotador_id:     anot.id,
+      anotador_nombre: anot.nombre,
+      asistente_id:    asist.id,
+      asistente_nombre:asist.nombre,
     });
   }
 
@@ -910,11 +921,15 @@ function submitForm() {
   const ocasiones = [];
   for (let i = 1; i <= ocasionCounter; i++) {
     if (!document.getElementById(`oc-${i}`)) continue;
+    const jug  = playerVal(`oc-jug-${i}`);
+    const pase = playerVal(`oc-pase-${i}`);
     ocasiones.push({
-      minuto:      document.getElementById(`oc-min-${i}`).value  || null,
-      jugador_id:  document.getElementById(`oc-jug-${i}`).value  || null,
-      tipo:        document.getElementById(`oc-tipo-${i}`).value  || null,
-      pase_clave:  document.getElementById(`oc-pase-${i}`).value || null,
+      minuto:           document.getElementById(`oc-min-${i}`).value  || null,
+      tipo:             document.getElementById(`oc-tipo-${i}`).value || null,
+      jugador_id:       jug.id,
+      jugador_nombre:   jug.nombre,
+      pase_clave_id:    pase.id,
+      pase_clave_nombre:pase.nombre,
     });
   }
 
@@ -922,10 +937,12 @@ function submitForm() {
   const atajadas = [];
   for (let i = 1; i <= atajadaCounter; i++) {
     if (!document.getElementById(`at-${i}`)) continue;
+    const jug = playerVal(`at-jug-${i}`);
     atajadas.push({
-      minuto:     document.getElementById(`at-min-${i}`).value  || null,
-      jugador_id: document.getElementById(`at-jug-${i}`).value  || null,
-      tipo:       document.getElementById(`at-tipo-${i}`).value || null,
+      minuto:          document.getElementById(`at-min-${i}`).value  || null,
+      tipo:            document.getElementById(`at-tipo-${i}`).value || null,
+      jugador_id:      jug.id,
+      jugador_nombre:  jug.nombre,
     });
   }
 
@@ -933,11 +950,13 @@ function submitForm() {
   const faltas_cometidas = [];
   for (let i = 1; i <= faltaComCounter; i++) {
     if (!document.getElementById(`fc-${i}`)) continue;
+    const jug = playerVal(`fc-jug-${i}`);
     faltas_cometidas.push({
-      jugador_id: document.getElementById(`fc-jug-${i}`).value    || null,
-      minuto:     document.getElementById(`fc-min-${i}`).value    || null,
-      sector:     document.getElementById(`fc-sector-${i}`).value || null,
-      tarjeta:    document.getElementById(`fc-tarjeta-${i}`).value || null,
+      jugador_id:     jug.id,
+      jugador_nombre: jug.nombre,
+      minuto:         document.getElementById(`fc-min-${i}`).value    || null,
+      sector:         document.getElementById(`fc-sector-${i}`).value || null,
+      tarjeta:        document.getElementById(`fc-tarjeta-${i}`).value || null,
     });
   }
 
@@ -955,30 +974,28 @@ function submitForm() {
   const titulares = [];
   for (let i = 1; i <= titularCounter; i++) {
     if (!document.getElementById(`tit-${i}`)) continue;
-    titulares.push({
-      jugador_id: document.getElementById(`tit-jug-${i}`).value || null,
-      posicion:   document.getElementById(`tit-pos-${i}`).value || null,
-    });
+    const jug = playerVal(`tit-jug-${i}`);
+     titulares.push({ jugador_id: jug.id, jugador_nombre: jug.nombre, posicion: document.getElementById(`tit-pos-${i}`).value || null });
   }
 
   // Suplentes
   const suplentes = [];
   for (let i = 1; i <= suplenteCounter; i++) {
     if (!document.getElementById(`sup-${i}`)) continue;
-    suplentes.push({
-      jugador_id: document.getElementById(`sup-jug-${i}`).value || null,
-      posicion:   document.getElementById(`sup-pos-${i}`).value || null,
-    });
+    const jug = playerVal(`sup-jug-${i}`);
+    suplentes.push({ jugador_id: jug.id, jugador_nombre: jug.nombre, posicion: document.getElementById(`sup-pos-${i}`).value || null });
   }
 
   // Cambios
   const cambios = [];
   for (let i = 1; i <= cambioCounter; i++) {
     if (!document.getElementById(`cam-${i}`)) continue;
+    const sale  = playerVal(`cam-sale-${i}`);
+    const entra = playerVal(`cam-entra-${i}`);
     cambios.push({
-      sale_id:    document.getElementById(`cam-sale-${i}`).value  || null,
-      entra_id:   document.getElementById(`cam-entra-${i}`).value || null,
-      minuto:     document.getElementById(`cam-min-${i}`).value   || null,
+      sale_id:     sale.id,  sale_nombre:  sale.nombre,
+      entra_id:    entra.id, entra_nombre: entra.nombre,
+      minuto:      document.getElementById(`cam-min-${i}`).value || null,
     });
   }
 
@@ -1042,7 +1059,7 @@ function resetForm() {
   document.getElementById('observaciones').value = '';
   document.getElementById('dur_tiempo').value = '';
   document.getElementById('titulares-list').innerHTML  = '';
-  document.getElementById('suplentes-list').innerHTML  = '';
+  document.getElementById('ntes-list').innerHTML  = '';
   document.getElementById('cambios-list').innerHTML    = '';
   titularCounter = 0; suplenteCounter = 0; cambioCounter = 0;
 }
