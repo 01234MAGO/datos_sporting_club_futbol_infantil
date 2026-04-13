@@ -11,7 +11,7 @@
     --surface:   #161b22;
     --surface2:  #1e2530;
     --border:    #2d3748;
-    --green:     #60a9d3;
+    --green:     #f81100;
     --green-dim: #030e70;
     --yellow:    #f1c40f;
     --red:       #ff1900;
@@ -403,37 +403,37 @@
 
 <script>
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwdk8QZvNrYXw--6lhNP1bO-buPQfg276S27IEfEI8OPfGH8XUi32nY5miFUwUnCLlb/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzA9QL1Werv4JmdUWIJUMCnZJTENlmrsXeGdosRcr_bAbAtu9Oq190cHFA8DBbAE1rk/exec",
 };
 
 const JUGADORES = {
   "quinta_division": [
-    { id: "5A-01", nombre: "Samir",    apellido: "Seguetti" },
-    { id: "5A-02", nombre: "Lautaro",    apellido: "Depetris" },
-    { id: "5A-03", nombre: "Maximo",   apellido: "Porcel" },
-    { id: "5A-04", nombre: "Bautista", apellido: "Fornaso" },
-    { id: "5A-05", nombre: "Felipe",       apellido: "Farias" },
-    { id: "5A-06", nombre: "Juan",         apellido: "Figueroa" },
-    { id: "5A-07", nombre: "Gino",         apellido: "Trombetti" },
-    { id: "5A-08", nombre: "Salvador",     apellido: "Nicolau" },
-    { id: "5A-09", nombre: "Fausto",       apellido: "Cosarinsky" },
-    { id: "5A-10", nombre: "Mateo",        apellido: "Farias" },
-    { id: "5A-11", nombre: "Santiago",     apellido: "Desio" },
-    { id: "5A-12", nombre: "Ceferino",     apellido: "Davico" },
-    { id: "5A-13", nombre: "Adriano",      apellido: "Cipollone" },
-    { id: "5A-14", nombre: "Santino",      apellido: "Cappone" },
-    { id: "5A-15", nombre: "Renzo",        apellido: "Boiero" },
-    { id: "5A-16", nombre: "Theo",         apellido: "Nicolau" },
-    { id: "5A-17", nombre: "Mateo",        apellido: "Said" },
-    { id: "5A-18", nombre: "Lautaro",      apellido: "Gimenez" },
-    { id: "5A-19", nombre: "Felipe",       apellido: "Cipollone" },
-    { id: "5A-20", nombre: "Agustin",      apellido: "Pagani" },
-    { id: "5A-21", nombre: "Ignacio",      apellido: "Cassina" },
-    { id: "5A-22", nombre: "Felipe",       apellido: "Gamarino" },
-    { id: "5A-23", nombre: "Felipe",       apellido: "Lupori" },
-    { id: "5A-24", nombre: "Benjamin",     apellido: "Arce" },
-    { id: "5A-25", nombre: "Juan Segundo", apellido: "Rodriguez" },
-    { id: "5A-26", nombre: "Ignacio",      apellido: "Jaime" },
+    { id: "5A-01", nombre: "Samir",       apellido: "Seguetti" },
+    { id: "5A-02", nombre: "Lautaro",     apellido: "Depetris" },
+    { id: "5A-03", nombre: "Maximo",      apellido: "Porcel" },
+    { id: "5A-04", nombre: "Bautista",    apellido: "Fornaso" },
+    { id: "5A-05", nombre: "Felipe",      apellido: "Farias" },
+    { id: "5A-06", nombre: "Juan",        apellido: "Figueroa" },
+    { id: "5A-07", nombre: "Gino",        apellido: "Trombetti" },
+    { id: "5A-08", nombre: "Salvador",    apellido: "Nicolau" },
+    { id: "5A-09", nombre: "Fausto",      apellido: "Cosarinsky" },
+    { id: "5A-10", nombre: "Mateo",       apellido: "Farias" },
+    { id: "5A-11", nombre: "Santiago",    apellido: "Desio" },
+    { id: "5A-12", nombre: "Ceferino",    apellido: "Davico" },
+    { id: "5A-13", nombre: "Adriano",     apellido: "Cipollone" },
+    { id: "5A-14", nombre: "Santino",     apellido: "Cappone" },
+    { id: "5A-15", nombre: "Renzo",       apellido: "Boiero" },
+    { id: "5A-16", nombre: "Theo",        apellido: "Nicolau" },
+    { id: "5A-17", nombre: "Mateo",       apellido: "Said" },
+    { id: "5A-18", nombre: "Lautaro",     apellido: "Gimenez" },
+    { id: "5A-19", nombre: "Felipe",      apellido: "Cipollone" },
+    { id: "5A-20", nombre: "Agustin",     apellido: "Pagani" },
+    { id: "5A-21", nombre: "Ignacio",     apellido: "Cassina" },
+    { id: "5A-22", nombre: "Felipe",      apellido: "Gamarino" },
+    { id: "5A-23", nombre: "Felipe",      apellido: "Lupori" },
+    { id: "5A-24", nombre: "Benjamin",    apellido: "Arce" },
+    { id: "5A-25", nombre: "Juan Segundo",apellido: "Rodriguez" },
+    { id: "5A-26", nombre: "Ignacio",     apellido: "Jaime" },
   ],
   "2012": [
     { id: "12-01", nombre: "Mateo",      apellido: "Confaloñeri" },
@@ -462,7 +462,7 @@ const JUGADORES = {
   ],
   "2013": [
     { id: "13-01", nombre: "Bernardo",  apellido: "Nant" },
-    { id: "13-02", nombre: "Francesco", apellido: "Digiusto"},
+    { id: "13-02", nombre: "Francesco", apellido: "Digiusto" },
     { id: "13-03", nombre: "Jano",      apellido: "Nicolau" },
     { id: "13-04", nombre: "Joaquín",   apellido: "Gamarino" },
     { id: "13-05", nombre: "Pedro",     apellido: "Siciliani" },
@@ -472,7 +472,7 @@ const JUGADORES = {
     { id: "13-09", nombre: "Martín",    apellido: "Reisigier" },
     { id: "13-10", nombre: "Felipe",    apellido: "Bianchi" },
     { id: "13-11", nombre: "Malik",     apellido: "Zakka" },
-    { id: "13-12", nombre: "Ezequiel",  apellido: "----- " },
+    { id: "13-12", nombre: "Ezequiel",  apellido: "-----" },
     { id: "13-13", nombre: "Matías",    apellido: "Bassi" },
   ],
   "2014": [
@@ -499,47 +499,47 @@ const JUGADORES = {
     { id: "14-21", nombre: "Tobias",       apellido: "Ontivero" },
   ],
   "2015": [
-    { id: "15-01", nombre: "Agustino",     apellido: "Marcon" },
-    { id: "15-02", nombre: "Benjamin",     apellido: "Bogado" },
-    { id: "15-03", nombre: "Bruno",        apellido: "Cassina" },
-    { id: "15-04", nombre: "Ciro",         apellido: "Espindola" },
-    { id: "15-05", nombre: "Enzo",         apellido: "Girotti" },
-    { id: "15-06", nombre: "Ezequiel",     apellido: "Reisiguir" },
-    { id: "15-07", nombre: "Juan",         apellido: "Ripacolli" },
-    { id: "15-08", nombre: "Joaquin",      apellido: "Farias" },
-    { id: "15-09", nombre: "Joaquin",      apellido: "Malpassi" },
-    { id: "15-10", nombre: "Lorenzo",      apellido: "Famoso" },
-    { id: "15-11", nombre: "Mateo",        apellido: "Cassina" },
-    { id: "15-12", nombre: "Mateo",        apellido: "Guerra" },
-    { id: "15-13", nombre: "Maximo",       apellido: "Cetti" },
-    { id: "15-14", nombre: "Maximiliano",  apellido: "Del Sol" },
-    { id: "15-15", nombre: "Milko",        apellido: "Mariatti" },
-    { id: "15-16", nombre: "Salvador",     apellido: "Perello" },
-    { id: "15-17", nombre: "Santiago",     apellido: "Mercado" },
-    { id: "15-18", nombre: "Pedro",        apellido: "Gamarino" },
-    { id: "15-19", nombre: "Teo",          apellido: "Alesso" },
-    { id: "15-20", nombre: "Vittorio",     apellido: "Tabasso" }
+    { id: "15-01", nombre: "Agustino",    apellido: "Marcon" },
+    { id: "15-02", nombre: "Benjamin",    apellido: "Bogado" },
+    { id: "15-03", nombre: "Bruno",       apellido: "Cassina" },
+    { id: "15-04", nombre: "Ciro",        apellido: "Espindola" },
+    { id: "15-05", nombre: "Enzo",        apellido: "Girotti" },
+    { id: "15-06", nombre: "Ezequiel",    apellido: "Reisiguir" },
+    { id: "15-07", nombre: "Juan",        apellido: "Ripacolli" },
+    { id: "15-08", nombre: "Joaquin",     apellido: "Farias" },
+    { id: "15-09", nombre: "Joaquin",     apellido: "Malpassi" },
+    { id: "15-10", nombre: "Lorenzo",     apellido: "Famoso" },
+    { id: "15-11", nombre: "Mateo",       apellido: "Cassina" },
+    { id: "15-12", nombre: "Mateo",       apellido: "Guerra" },
+    { id: "15-13", nombre: "Maximo",      apellido: "Cetti" },
+    { id: "15-14", nombre: "Maximiliano", apellido: "Del Sol" },
+    { id: "15-15", nombre: "Milko",       apellido: "Mariatti" },
+    { id: "15-16", nombre: "Salvador",    apellido: "Perello" },
+    { id: "15-17", nombre: "Santiago",    apellido: "Mercado" },
+    { id: "15-18", nombre: "Pedro",       apellido: "Gamarino" },
+    { id: "15-19", nombre: "Teo",         apellido: "Alesso" },
+    { id: "15-20", nombre: "Vittorio",    apellido: "Tabasso" },
   ],
   "2016": [
-    { id: "16-01", nombre: "Gian",       apellido: "Trombetti" },
-    { id: "16-02", nombre: "Horacio",    apellido: "Infante" },
-    { id: "16-03", nombre: "Enzo",       apellido: "Pagani" },
-    { id: "16-04", nombre: "Joaquín",    apellido: "Raissiguier" },
-    { id: "16-05", nombre: "Juan",       apellido: "Nicolau" },
-    { id: "16-06", nombre: "Agustín",    apellido: "Martini" },
-    { id: "16-07", nombre: "Lautaro",    apellido: "Bunziak" },
-    { id: "16-08", nombre: "Augusto",    apellido: "Maroni" },
-    { id: "16-09", nombre: "Camilo",     apellido: "Della Puppa" },
-    { id: "16-10", nombre: "Nachi",      apellido: "Scarafia" },
-    { id: "16-11", nombre: "Octavio",    apellido: "Ortiz" },
-    { id: "16-12", nombre: "Felipe",     apellido: "Perelló" },
-    { id: "16-13", nombre: "Valentino",  apellido: "Simioni" },
-    { id: "16-14", nombre: "Benicio",    apellido: "Bianchi" },
-    { id: "16-15", nombre: "Lorenzo",    apellido: "Savino" },
-    { id: "16-16", nombre: "Alvaro",     apellido: "Spizzo" },
-    { id: "16-17", nombre: "Benjamin",   apellido: "Escariz" },
-    { id: "16-18", nombre: "Felipe",     apellido: "Soldini" },
-    { id: "16-19", nombre: "Augusto",    apellido: "Imarisio" }
+    { id: "16-01", nombre: "Gian",      apellido: "Trombetti" },
+    { id: "16-02", nombre: "Horacio",   apellido: "Infante" },
+    { id: "16-03", nombre: "Enzo",      apellido: "Pagani" },
+    { id: "16-04", nombre: "Joaquín",   apellido: "Raissiguier" },
+    { id: "16-05", nombre: "Juan",      apellido: "Nicolau" },
+    { id: "16-06", nombre: "Agustín",   apellido: "Martini" },
+    { id: "16-07", nombre: "Lautaro",   apellido: "Bunziak" },
+    { id: "16-08", nombre: "Augusto",   apellido: "Maroni" },
+    { id: "16-09", nombre: "Camilo",    apellido: "Della Puppa" },
+    { id: "16-10", nombre: "Nachi",     apellido: "Scarafia" },
+    { id: "16-11", nombre: "Octavio",   apellido: "Ortiz" },
+    { id: "16-12", nombre: "Felipe",    apellido: "Perelló" },
+    { id: "16-13", nombre: "Valentino", apellido: "Simioni" },
+    { id: "16-14", nombre: "Benicio",   apellido: "Bianchi" },
+    { id: "16-15", nombre: "Lorenzo",   apellido: "Savino" },
+    { id: "16-16", nombre: "Alvaro",    apellido: "Spizzo" },
+    { id: "16-17", nombre: "Benjamin",  apellido: "Escariz" },
+    { id: "16-18", nombre: "Felipe",    apellido: "Soldini" },
+    { id: "16-19", nombre: "Augusto",   apellido: "Imarisio" },
   ],
   "2017": [
     { id: "17-01", nombre: "Valentino",   apellido: "Taborda" },
@@ -556,29 +556,30 @@ const JUGADORES = {
     { id: "17-12", nombre: "Lorenzo",     apellido: "Menna" },
   ],
   "2018": [
-    { id: "18-01", nombre: "Lorenzo",        apellido: "Gusella" },
-    { id: "18-02", nombre: "Logan",          apellido: "Benitez" },
-    { id: "18-03", nombre: "Juan Ignacio",   apellido: "Luna Pla" },
-    { id: "18-04", nombre: "Felipe",         apellido: "Perazzo Gratarolli" },
-    { id: "18-05", nombre: "Tobias",         apellido: "Rocha" },
-    { id: "18-06", nombre: "Eneas",          apellido: "Ustares" },
-    { id: "18-07", nombre: "Bautista",       apellido: "Bassa" },
-    { id: "18-08", nombre: "Juan Segundo",   apellido: "Bolatti" },
-    { id: "18-09", nombre: "Stefano",        apellido: "Martin Franco" },
-    { id: "18-10", nombre: "Dante",          apellido: "Bolatti" },
-    { id: "18-11", nombre: "Milo",           apellido: "Valdettaro" },
-    { id: "18-12", nombre: "Agustin",        apellido: "Torres" },
-    { id: "18-13", nombre: "Bruno",          apellido: "Fregosi" },
-    { id: "18-14", nombre: "Fran",           apellido: "Merida" },
-    { id: "18-15", nombre: "Bruno",          apellido: "Arrieta" },
-    { id: "18-16", nombre: "Juan Bautista",  apellido: "Gotta" },
-    { id: "18-17", nombre: "Mateo",          apellido: "Santi" }
+    { id: "18-01", nombre: "Lorenzo",      apellido: "Gusella" },
+    { id: "18-02", nombre: "Logan",        apellido: "Benitez" },
+    { id: "18-03", nombre: "Juan Ignacio", apellido: "Luna Pla" },
+    { id: "18-04", nombre: "Felipe",       apellido: "Perazzo Gratarolli" },
+    { id: "18-05", nombre: "Tobias",       apellido: "Rocha" },
+    { id: "18-06", nombre: "Eneas",        apellido: "Ustares" },
+    { id: "18-07", nombre: "Bautista",     apellido: "Bassa" },
+    { id: "18-08", nombre: "Juan Segundo", apellido: "Bolatti" },
+    { id: "18-09", nombre: "Stefano",      apellido: "Martin Franco" },
+    { id: "18-10", nombre: "Dante",        apellido: "Bolatti" },
+    { id: "18-11", nombre: "Milo",         apellido: "Valdettaro" },
+    { id: "18-12", nombre: "Agustin",      apellido: "Torres" },
+    { id: "18-13", nombre: "Bruno",        apellido: "Fregosi" },
+    { id: "18-14", nombre: "Fran",         apellido: "Merida" },
+    { id: "18-15", nombre: "Bruno",        apellido: "Arrieta" },
+    { id: "18-16", nombre: "Juan Bautista",apellido: "Gotta" },
+    { id: "18-17", nombre: "Mateo",        apellido: "Santi" },
   ]
 };
 
 // ── Contadores
 let golCounter = 0, ocasionCounter = 0, atajadaCounter = 0;
 let faltaComCounter = 0, faltaRecCounter = 0;
+let titularCounter = 0, suplenteCounter = 0, cambioCounter = 0;
 let localiaSeleccionada = null;
 
 // ── Tipos comunes
@@ -598,24 +599,38 @@ const SECTORES = `
   <option value="medio">Medio</option>
   <option value="bajo">Bajo</option>`;
 
+const POSICIONES = `
+  <option value="">Posición</option>
+  <option value="arquero">Arquero</option>
+  <option value="defensor_central">Defensor central</option>
+  <option value="lateral">Lateral</option>
+  <option value="volante_central">Volante central</option>
+  <option value="volante_extremo">Volante / Extremo</option>
+  <option value="volante_creativo">Volante creativo</option>
+  <option value="delantero_punta">Delantero Punta</option>
+  <option value="segundo_delantero">Segundo Delantero</option>`;
+
 function getJugadoresActuales() {
   return JUGADORES[document.getElementById('categoria').value] || [];
 }
 
+// Guarda "ID|Apellido Nombre" en value para que el Apps Script pueda
+// mostrar el nombre en el email sin tener su propia copia del diccionario
 function buildPlayerOptions(placeholder = 'Jugador') {
   let opts = `<option value="">${placeholder}</option>`;
   getJugadoresActuales().forEach(j => {
-    // value lleva "ID|Apellido Nombre" para que el Apps Script pueda mostrar el nombre
     opts += `<option value="${j.id}|${j.apellido} ${j.nombre}">${j.apellido}, ${j.nombre}</option>`;
   });
   return opts;
 }
 
+// Extrae {id, nombre} del value "ID|Nombre"
 function playerVal(elId) {
   const raw = document.getElementById(elId)?.value || '';
   if (!raw) return { id: null, nombre: null };
-  const [id, nombre] = raw.split('|');
-  return { id: id || null, nombre: nombre || null };
+  const sep = raw.indexOf('|');
+  if (sep === -1) return { id: raw, nombre: null };
+  return { id: raw.slice(0, sep), nombre: raw.slice(sep + 1) };
 }
 
 function onCategoriaChange() {
@@ -629,20 +644,18 @@ function onCategoriaChange() {
 
 function setLocalia(val) {
   localiaSeleccionada = val;
-  document.getElementById('opt-local').className     = 'radio-opt' + (val==='local'     ? ' selected-local' : '');
-  document.getElementById('opt-visitante').className = 'radio-opt' + (val==='visitante' ? ' selected-visit' : '');
-}
-
-function toggleCheck(id) {
-  const cb = document.getElementById(id);
-  cb.checked = !cb.checked;
-  const labelId = id === 'valla_1t' ? 'check-valla1' : 'check-valla2';
-  document.getElementById(labelId).classList.toggle('checked', cb.checked);
+  document.getElementById('opt-local').className     = 'radio-opt' + (val === 'local'     ? ' selected-local' : '');
+  document.getElementById('opt-visitante').className = 'radio-opt' + (val === 'visitante' ? ' selected-visit' : '');
 }
 
 function removeItem(itemId) {
   const el = document.getElementById(itemId);
-  if (el) { el.style.opacity='0'; el.style.transform='scale(0.95)'; el.style.transition='0.15s'; setTimeout(()=>el.remove(),150); }
+  if (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'scale(0.95)';
+    el.style.transition = '0.15s';
+    setTimeout(() => el.remove(), 150);
+  }
 }
 
 // ── GOLES
@@ -692,10 +705,10 @@ function addOcasion() {
     <div class="form-grid cols-2">
       <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 22" id="oc-min-${id}"></div>
-      <div class="field"><label>Jugador</label>
-        <select id="oc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
       <div class="field"><label>Tipo</label>
         <select id="oc-tipo-${id}">${TIPOS_EVENTO}</select></div>
+      <div class="field"><label>Jugador</label>
+        <select id="oc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
       <div class="field"><label>Pase clave de</label>
         <select id="oc-pase-${id}" class="player-select">${buildPlayerOptions('— Sin pase clave —')}</select></div>
     </div>`;
@@ -713,11 +726,11 @@ function addAtajada() {
       <button class="btn-remove" onclick="removeItem('at-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-3">
-      <div class="field"><label>Minuto <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 55" id="at-min-${id}"></div>
-      <div class="field"><label>Jugador (arquero) <span class="opt"></span></label>
+      <div class="field"><label>Jugador (arquero)</label>
         <select id="at-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Tipo <span class="opt"></span></label>
+      <div class="field"><label>Tipo</label>
         <select id="at-tipo-${id}">${TIPOS_EVENTO}</select></div>
     </div>`;
   document.getElementById('atajadas-list').appendChild(el);
@@ -730,20 +743,21 @@ function addFaltaCometida() {
   el.className = 'event-item'; el.id = `fc-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">🪓 Falta Cometida #${id}</span>
+      <span class="event-num">🟨 Falta Cometida #${id}</span>
       <button class="btn-remove" onclick="removeItem('fc-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="fc-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Minuto <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 38" id="fc-min-${id}"></div>
-      <div class="field"><label>Sector <span class="opt"></span></label>
+      <div class="field"><label>Sector</label>
         <select id="fc-sector-${id}">${SECTORES}</select></div>
-      <div class="field"><label>Tarjeta <span class="opt"></span></label>
+      <div class="field"><label>Tarjeta</label>
         <div class="card-type-toggle">
           <button class="card-type-btn amarilla" id="fc-amarilla-${id}" onclick="setFaltaCard(${id},'amarilla')">🟨 Amarilla</button>
           <button class="card-type-btn roja"     id="fc-roja-${id}"     onclick="setFaltaCard(${id},'roja')">🟥 Roja</button>
+          <button class="card-type-btn"          id="fc-ninguna-${id}"  onclick="setFaltaCard(${id},'')">— Ninguna</button>
         </div>
         <input type="hidden" id="fc-tarjeta-${id}" value=""></div>
     </div>`;
@@ -752,10 +766,9 @@ function addFaltaCometida() {
 
 function setFaltaCard(id, tipo) {
   document.getElementById(`fc-tarjeta-${id}`).value = tipo;
-  ['amarilla','roja','ninguna'].forEach(t => {
+  ['amarilla', 'roja', 'ninguna'].forEach(t => {
     const btn = document.getElementById(`fc-${t}-${id}`);
-    if (!btn) return;
-    btn.classList.remove('active');
+    if (btn) btn.classList.remove('active');
   });
   if (tipo === 'amarilla') document.getElementById(`fc-amarilla-${id}`).classList.add('active');
   if (tipo === 'roja')     document.getElementById(`fc-roja-${id}`).classList.add('active');
@@ -768,20 +781,17 @@ function addFaltaRecibida() {
   el.className = 'event-item'; el.id = `fr-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">❎ Falta Recibida #${id}</span>
+      <span class="event-num">🟥 Falta Recibida #${id}</span>
       <button class="btn-remove" onclick="removeItem('fr-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Minuto <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 61" id="fr-min-${id}"></div>
-      <div class="field"><label>Sector <span class="opt"></span></label>
+      <div class="field"><label>Sector</label>
         <select id="fr-sector-${id}">${SECTORES}</select></div>
     </div>`;
   document.getElementById('faltas-rec-list').appendChild(el);
 }
-
-// ── Contadores plantel
-let titularCounter = 0, suplenteCounter = 0, cambioCounter = 0;
 
 // ── TITULARES
 function addTitular() {
@@ -794,20 +804,10 @@ function addTitular() {
       <button class="btn-remove" onclick="removeItem('tit-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="tit-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Posición <span class="opt"></span></label>
-        <select id="tit-pos-${id}">
-          <option value="">Posición</option>
-          <option value="arquero">Arquero</option>
-          <option value="defensor_central">Defensor central</option>
-          <option value="lateral">Lateral</option>
-          <option value="volante_central">Volante central</option>
-          <option value="volante_extremo">Volante / Extremo</option>
-          <option value="volante creativo">Volante creativo</option>
-          <option value="delantero_punta">Delantero Punta</option>
-          <option value="segundo_delantero">Segundo Delantero</option>
-        </select></div>
+      <div class="field"><label>Posición</label>
+        <select id="tit-pos-${id}">${POSICIONES}</select></div>
     </div>`;
   document.getElementById('titulares-list').appendChild(el);
 }
@@ -819,24 +819,14 @@ function addSuplente() {
   el.className = 'event-item'; el.id = `sup-${id}`;
   el.innerHTML = `
     <div class="event-item-header">
-      <span class="event-num">➡️ Suplente #${id}</span>
+      <span class="event-num">🔄 Suplente #${id}</span>
       <button class="btn-remove" onclick="removeItem('sup-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-2">
-      <div class="field"><label>Jugador <span class="opt"></span></label>
+      <div class="field"><label>Jugador</label>
         <select id="sup-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Posición <span class="opt"></span></label>
-        <select id="sup-pos-${id}">
-          <option value="">Posición</option>
-          <option value="arquero">Arquero</option>
-          <option value="defensor_central">Defensor central</option>
-          <option value="lateral">Lateral</option>
-          <option value="volante_central">Volante central</option>
-          <option value="volante_extremo">Volante / Extremo</option>
-          <option value="volante creativo">Volante creativo</option>
-          <option value="delantero_punta">Delantero Punta</option>
-          <option value="segundo_delantero">Segundo Delantero</option>
-        </select></div>
+      <div class="field"><label>Posición</label>
+        <select id="sup-pos-${id}">${POSICIONES}</select></div>
     </div>`;
   document.getElementById('suplentes-list').appendChild(el);
 }
@@ -852,11 +842,11 @@ function addCambio() {
       <button class="btn-remove" onclick="removeItem('cam-${id}')" title="Eliminar">✕</button>
     </div>
     <div class="form-grid cols-3">
-      <div class="field"><label>Sale <span class="opt"></span></label>
+      <div class="field"><label>Sale</label>
         <select id="cam-sale-${id}" class="player-select">${buildPlayerOptions('Jugador que sale...')}</select></div>
-      <div class="field"><label>Entra <span class="opt"></span></label>
+      <div class="field"><label>Entra</label>
         <select id="cam-entra-${id}" class="player-select">${buildPlayerOptions('Jugador que entra...')}</select></div>
-      <div class="field"><label>Minuto <span class="opt"></span></label>
+      <div class="field"><label>Minuto</label>
         <input type="number" min="1" max="120" placeholder="ej: 35" id="cam-min-${id}"></div>
     </div>`;
   document.getElementById('cambios-list').appendChild(el);
@@ -865,27 +855,22 @@ function addCambio() {
 // ── VALIDACIÓN
 function validate() {
   const req = [
-    { id: 'categoria',    msg: 'Seleccioná una categoría.' },
-    { id: 'fecha',        msg: 'Ingresá la fecha del partido.' },
-    { id: 'rival',        msg: 'Seleccioná el rival.' },
+    { id: 'categoria', msg: 'Seleccioná una categoría.' },
+    { id: 'fecha',     msg: 'Ingresá la fecha del partido.' },
+    { id: 'rival',     msg: 'Seleccioná el rival.' },
   ];
   for (const f of req) {
     if (!document.getElementById(f.id).value) { showToast(f.msg, 'error'); return false; }
   }
   if (!localiaSeleccionada) { showToast('Seleccioná la localía.', 'error'); return false; }
-
-  // Goles: tipo y anotador obligatorios
   for (let i = 1; i <= golCounter; i++) {
     if (!document.getElementById(`gol-${i}`)) continue;
-    if (!document.getElementById(`gol-tipo-${i}`).value)  { showToast(`Gol #${i}: falta el tipo.`, 'error'); return false; }
-    if (!document.getElementById(`gol-anot-${i}`).value)  { showToast(`Gol #${i}: falta el anotador.`, 'error'); return false; }
+    if (!document.getElementById(`gol-tipo-${i}`).value) { showToast(`Gol #${i}: falta el tipo.`, 'error'); return false; }
+    if (!document.getElementById(`gol-anot-${i}`).value) { showToast(`Gol #${i}: falta el anotador.`, 'error'); return false; }
   }
-
-  // Email obligatorio
   const email = document.getElementById('email-profesor').value.trim();
   if (!email) { showToast('Ingresá tu email antes de enviar.', 'error'); return false; }
-  if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) { showToast('El email no tiene un formato válido.', 'error'); return false; }
-
+  if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) { showToast('El email no tiene formato válido.', 'error'); return false; }
   return true;
 }
 
