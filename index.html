@@ -403,7 +403,7 @@
 
 <script>
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzCa5-Z2FuG9yXifcw96ju89mVXQDPX0-B6MxiqSyTyxYH9b1d6983xeBxUaQ0B1H8j/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwdk8QZvNrYXw--6lhNP1bO-buPQfg276S27IEfEI8OPfGH8XUi32nY5miFUwUnCLlb/exec",
 };
 
 const JUGADORES = {
@@ -894,9 +894,7 @@ function submitForm() {
   if (!validate()) return;
 
   const cat     = document.getElementById('categoria').value;
-  const fecha   = document.getElementById('fecha').value;
-  const valla1t = document.getElementById('valla_1t').checked;
-  const valla2t = document.getElementById('valla_2t').checked;
+  const fecha   = document.getdataElementById('fecha').value;
   const gFavor  = parseInt(document.getElementById('goles_favor').value)  || 0;
   const gContra = parseInt(document.getElementById('goles_contra').value) || 0;
   const email   = document.getElementById('email-profesor').value.trim();
@@ -1059,7 +1057,7 @@ function resetForm() {
   document.getElementById('observaciones').value = '';
   document.getElementById('dur_tiempo').value = '';
   document.getElementById('titulares-list').innerHTML  = '';
-  document.getElementById('ntes-list').innerHTML  = '';
+  document.getElementById('suplentes-list').innerHTML  = '';
   document.getElementById('cambios-list').innerHTML    = '';
   titularCounter = 0; suplenteCounter = 0; cambioCounter = 0;
 }
