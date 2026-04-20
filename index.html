@@ -253,6 +253,21 @@
     </div>
   </div>
 
+  <!-- GOLES EN CONTRA -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:var(--red)">🥅</div>
+      <div>
+        <div class="section-title">Goles en Contra</div>
+        <div class="section-subtitle">Detalle de cada gol recibido — todos los campos opcionales</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="events-list" id="goles-contra-list"></div>
+      <button class="btn-add" onclick="addGolContra()"><span style="font-size:18px">＋</span> Agregar gol en contra</button>
+    </div>
+  </div>
+
   <!-- OCASIONES DE GOL -->
   <div class="section">
     <div class="section-header">
@@ -370,7 +385,7 @@
 
 <script>
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzWO4HRE7eMezoyJXm8fMgTw2Bkv8wWjWuh7cz70FNfgJfwj0JK35yGcSbdRPUaAr9O/exec",
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxzsx7xecH7ctsZgnwf9xJEulMZe1nPDVhMlZfk8GMI_57W8mxKg1K7LSMndFWWNGtI/exec",
 };
 
 const JUGADORES = {
@@ -544,7 +559,7 @@ const JUGADORES = {
 };
 
 // Contadores
-let golCounter=0, ocasionCounter=0, atajadaCounter=0;
+let golCounter=0, golContraCounter=0, ocasionCounter=0, atajadaCounter=0;
 let faltaComCounter=0, faltaRecCounter=0;
 let titularCounter=0, suplenteCounter=0, cambioCounter=0;
 let localiaSeleccionada=null;
@@ -557,6 +572,16 @@ const TIPOS_EVENTO = `
   <option value="pelota_parada">Pelota parada (cabeza)</option>
   <option value="segunda_pelota">2da pelota (rebote / pp)</option>
   <option value="tiro_libre_directo">Tiro libre directo</option>
+  <option value="penal">Penal</option>`;
+
+const TIPOS_ARCO = `
+  <option value="">Tipo</option>
+  <option value="mano_a_mano">Mano a mano</option>
+  <option value="segunda_pelota">Segunda pelota</option>
+  <option value="remate">Remate</option>
+  <option value="centro_alto">Centro alto</option>
+  <option value="centro_bajo">Centro bajo</option>
+  <option value="pelota_parada_cabeza">Pelota parada cabeza</option>
   <option value="penal">Penal</option>`;
 
 const SECTORES = `
@@ -647,6 +672,24 @@ function addGol() {
   document.getElementById('goles-list').appendChild(el);
 }
 
+function addGolContra() {
+  const id = ++golContraCounter;
+  const el = document.createElement('div');
+  el.className='event-item'; el.id=`gc-${id}`;
+  el.innerHTML=`
+    <div class="event-item-header">
+      <span class="event-num" style="color:var(--red)">Gol en Contra #${id}</span>
+      <button class="btn-remove" onclick="removeItem('gc-${id}')">X</button>
+    </div>
+    <div class="form-grid cols-3">
+      <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 28" id="gc-min-${id}"></div>
+      <div class="field"><label>Arquero</label>
+        <select id="gc-arq-${id}" class="player-select">${buildPlayerOptions('Arquero...')}</select></div>
+      <div class="field"><label>Tipo</label><select id="gc-tipo-${id}">${TIPOS_ARCO}</select></div>
+    </div>`;
+  document.getElementById('goles-contra-list').appendChild(el);
+}
+
 function addOcasion() {
   const id = ++ocasionCounter;
   const el = document.createElement('div');
@@ -680,7 +723,7 @@ function addAtajada() {
       <div class="field"><label>Minuto</label><input type="number" min="1" max="120" placeholder="ej: 55" id="at-min-${id}"></div>
       <div class="field"><label>Jugador (arquero)</label>
         <select id="at-jug-${id}" class="player-select">${buildPlayerOptions()}</select></div>
-      <div class="field"><label>Tipo</label><select id="at-tipo-${id}">${TIPOS_EVENTO}</select></div>
+      <div class="field"><label>Tipo</label><select id="at-tipo-${id}">${TIPOS_ARCO}</select></div>
     </div>`;
   document.getElementById('atajadas-list').appendChild(el);
 }
@@ -836,6 +879,18 @@ function submitForm() {
     });
   }
 
+  const goles_contra = [];
+  for (let i=1; i<=golContraCounter; i++) {
+    if (!document.getElementById(`gc-${i}`)) continue;
+    const arq = playerVal(`gc-arq-${i}`);
+    goles_contra.push({
+      minuto:          document.getElementById(`gc-min-${i}`).value  || null,
+      tipo:            document.getElementById(`gc-tipo-${i}`).value || null,
+      arquero_id:      arq.id,
+      arquero_nombre:  arq.nombre,
+    });
+  }
+
   const ocasiones = [];
   for (let i=1; i<=ocasionCounter; i++) {
     if (!document.getElementById(`oc-${i}`)) continue;
@@ -912,7 +967,7 @@ function submitForm() {
   }
 
   const data = {
-    metadata: { version_formulario: "2.1", timestamp_envio: new Date().toISOString() },
+    metadata: { version_formulario: "2.2", timestamp_envio: new Date().toISOString() },
     profesor_email: email,
     partido: {
       id_partido: `${cat}_${fecha}_${Date.now()}`,
@@ -923,7 +978,7 @@ function submitForm() {
       localia:    localiaSeleccionada,
       resultado:  { goles_favor: gFavor, goles_contra: gContra }
     },
-    goles, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
+    goles, goles_contra, ocasiones, atajadas, faltas_cometidas, faltas_recibidas,
     plantel: {
       duracion_tiempo: document.getElementById('dur_tiempo').value || null,
       titulares, suplentes, cambios
@@ -965,11 +1020,11 @@ function resetForm() {
   document.getElementById('opt-local').className       = 'radio-opt';
   document.getElementById('opt-visitante').className   = 'radio-opt';
   localiaSeleccionada = null;
-  ['goles-list','ocasiones-list','atajadas-list','faltas-com-list','faltas-rec-list',
+  ['goles-list','goles-contra-list','ocasiones-list','atajadas-list','faltas-com-list','faltas-rec-list',
    'titulares-list','suplentes-list','cambios-list'].forEach(id => {
     document.getElementById(id).innerHTML = '';
   });
-  golCounter=0; ocasionCounter=0; atajadaCounter=0;
+  golCounter=0; golContraCounter=0; ocasionCounter=0; atajadaCounter=0;
   faltaComCounter=0; faltaRecCounter=0;
   titularCounter=0; suplenteCounter=0; cambioCounter=0;
 }
