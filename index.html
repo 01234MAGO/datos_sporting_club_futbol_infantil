@@ -551,11 +551,11 @@ let localiaSeleccionada=null;
 
 const TIPOS_EVENTO = `
   <option value="">Tipo</option>
-  <option value="jugada">Jugada colectiva</option>
-  <option value="ataque_directo">Ataque directo (mano a mano)</option>
-  <option value="remate">Remate</option>
-  <option value="centro">Centro</option>
-  <option value="pelota_parada">Pelota parada (2da pelota)</option>
+  <option value="jugada_centro">Jugada colectiva (o centro)</option>
+  <option value="ataque_directo">Ataque directo (recupero + ataque)</option>
+  <option value="remate">Remate directo</option>
+  <option value="pelota_parada">Pelota parada (cabeza)</option>
+  <option value="segunda_pelota">2da pelota (rebote / pp)</option>
   <option value="tiro_libre_directo">Tiro libre directo</option>
   <option value="penal">Penal</option>`;
 
@@ -630,11 +630,11 @@ function addGol() {
       <div class="field"><label>Tipo <span class="req">*</span></label>
         <select id="gol-tipo-${id}">
           <option value="">Tipo...</option>
-          <option value="jugada">Jugada colectiva</option>
-          <option value="ataque_directo">Ataque directo</option>
-          <option value="remate">Remate</option>
-          <option value="centro">Centro</option>
-          <option value="pelota_parada">Pelota parada (2da pelota)</option>
+          <option value="jugada_colectiva">Jugada colectiva (o centro)</option>
+          <option value="ataque_directo">Ataque directo (recupero + ataque)</option>
+          <option value="segunda_pelota">2da pelota (rebote / pp)</option>
+          <option value="remate">Remate directo</option>
+          <option value="pelota_parada">Pelota parada (cabeza)</option>
           <option value="tiro_libre_directo">Tiro libre directo</option>
           <option value="penal">Penal</option>
           <option value="autogol">Autogol</option>
